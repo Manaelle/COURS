@@ -1,0 +1,16 @@
+DIGEST 1c0abb81d8d45f852a6b5703d9fe1cb4
+FTD1
+sec 8:10 <> TD1
+def 25:25 <> f
+R40:42 Coq.Init.Peano <> :nat_scope:x_'+'_x not
+R39:39 TD1 <> x var
+R63:63 TD1 <> f def
+def 77:77 <> t
+R82:82 TD1 <> f def
+R95:95 TD1 <> t def
+def 109:109 <> u
+R127:129 Coq.Init.Peano <> :nat_scope:x_'-'_x not
+R126:126 TD1 <> x var
+R130:130 TD1 <> y var
+R147:147 TD1 <> u def
+R155:157 TD1 TD1 <> sec

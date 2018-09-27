@@ -1,0 +1,14 @@
+QUESTION 1.1 :
+	Non, ce n'est pas possible car chaque processus a ses propres descripteurs/variables : Ils ne partagent pas les mêmes variables en config classique. CHaque processus a un espace mémoire qui lui est propre.
+	
+QUESTION 1.3 : 
+	shm_server crée une variable (de type string) partagée et y écrit des données. 
+	
+	Pendant ce temps, shm_client va lire les données dans cette variable, et ajouter * au début quand c'est lu. 
+	
+	Pour tester, ouvrir 2 xterm, exécuter shm_server dans l'un puis shm_client dans l'autre.
+	
+QUESTION 1.4 : 
+	
+	
+ 

@@ -1,0 +1,20 @@
+CC=gcc
+CFLAGS=-Wall -Werror
+
+all: essai_pile
+
+essai_pile: essai_pile.o pile.o pile_io.o
+	$(CC) -o $@ $^
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
+
+essai_pile.o: pile.h pile_io.h
+pile_io.o: pile_io.h pile.h
+pile.o: pile.h
+
+clean:
+	rm -rf *.o
+	
+rinit:
+	rm essai_pile *.o

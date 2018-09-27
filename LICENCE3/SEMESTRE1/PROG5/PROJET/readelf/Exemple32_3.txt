@@ -1,0 +1,100 @@
+Section de relocalisation '.rel.debug_info' à l'adresse de décalage 0x11c0 contient 69 entrées:
+ Décalage   Info    Type            Val.-sym   Noms-symboles
+00000006  00001402 R_ARM_ABS32       00000000   .debug_abbrev
+0000000c  00001702 R_ARM_ABS32       00000000   .debug_str
+00000011  00001702 R_ARM_ABS32       00000000   .debug_str
+00000015  00001702 R_ARM_ABS32       00000000   .debug_str
+00000019  00000202 R_ARM_ABS32       00000000   .text
+00000021  00001602 R_ARM_ABS32       00000000   .debug_line
+00000028  00001702 R_ARM_ABS32       00000000   .debug_str
+0000002f  00001702 R_ARM_ABS32       00000000   .debug_str
+00000036  00001702 R_ARM_ABS32       00000000   .debug_str
+0000003d  00001702 R_ARM_ABS32       00000000   .debug_str
+00000042  00001702 R_ARM_ABS32       00000000   .debug_str
+0000004f  00001702 R_ARM_ABS32       00000000   .debug_str
+00000054  00001702 R_ARM_ABS32       00000000   .debug_str
+00000061  00001702 R_ARM_ABS32       00000000   .debug_str
+00000068  00001702 R_ARM_ABS32       00000000   .debug_str
+0000006f  00001702 R_ARM_ABS32       00000000   .debug_str
+0000007d  00001702 R_ARM_ABS32       00000000   .debug_str
+00000082  00001702 R_ARM_ABS32       00000000   .debug_str
+0000008d  00001702 R_ARM_ABS32       00000000   .debug_str
+0000009a  00001702 R_ARM_ABS32       00000000   .debug_str
+000000b2  00001702 R_ARM_ABS32       00000000   .debug_str
+000000bf  00001702 R_ARM_ABS32       00000000   .debug_str
+000000cb  00001702 R_ARM_ABS32       00000000   .debug_str
+000000e0  00001702 R_ARM_ABS32       00000000   .debug_str
+000000e6  00001702 R_ARM_ABS32       00000000   .debug_str
+000000ed  00001702 R_ARM_ABS32       00000000   .debug_str
+0000011c  00001702 R_ARM_ABS32       00000000   .debug_str
+00000129  00001702 R_ARM_ABS32       00000000   .debug_str
+00000136  00001702 R_ARM_ABS32       00000000   .debug_str
+00000150  00001702 R_ARM_ABS32       00000000   .debug_str
+00000164  00001702 R_ARM_ABS32       00000000   .debug_str
+0000016a  00001702 R_ARM_ABS32       00000000   .debug_str
+00000171  00001702 R_ARM_ABS32       00000000   .debug_str
+00000184  00001702 R_ARM_ABS32       00000000   .debug_str
+0000018a  00001702 R_ARM_ABS32       00000000   .debug_str
+00000190  00001702 R_ARM_ABS32       00000000   .debug_str
+00000197  00001702 R_ARM_ABS32       00000000   .debug_str
+000001aa  00001702 R_ARM_ABS32       00000000   .debug_str
+000001b6  00001702 R_ARM_ABS32       00000000   .debug_str
+000001c2  00001702 R_ARM_ABS32       00000000   .debug_str
+000001ce  00001702 R_ARM_ABS32       00000000   .debug_str
+000001db  00001702 R_ARM_ABS32       00000000   .debug_str
+000001e6  00001702 R_ARM_ABS32       00000000   .debug_str
+000001ec  00000202 R_ARM_ABS32       00000000   .text
+000001f7  00001702 R_ARM_ABS32       00000000   .debug_str
+000001fd  00000202 R_ARM_ABS32       00000000   .text
+0000020c  00001702 R_ARM_ABS32       00000000   .debug_str
+0000022f  00001702 R_ARM_ABS32       00000000   .debug_str
+00000235  00000202 R_ARM_ABS32       00000000   .text
+00000244  00001702 R_ARM_ABS32       00000000   .debug_str
+00000253  00001702 R_ARM_ABS32       00000000   .debug_str
+00000259  00000202 R_ARM_ABS32       00000000   .text
+00000268  00001702 R_ARM_ABS32       00000000   .debug_str
+00000277  00001702 R_ARM_ABS32       00000000   .debug_str
+00000281  00000202 R_ARM_ABS32       00000000   .text
+00000290  00001702 R_ARM_ABS32       00000000   .debug_str
+0000029e  00001702 R_ARM_ABS32       00000000   .debug_str
+000002ad  00001702 R_ARM_ABS32       00000000   .debug_str
+000002b3  00000202 R_ARM_ABS32       00000000   .text
+000002c2  00001702 R_ARM_ABS32       00000000   .debug_str
+000002d1  00001702 R_ARM_ABS32       00000000   .debug_str
+000002dc  00000202 R_ARM_ABS32       00000000   .text
+000002eb  00001702 R_ARM_ABS32       00000000   .debug_str
+000002fa  00001702 R_ARM_ABS32       00000000   .debug_str
+00000309  00001702 R_ARM_ABS32       00000000   .debug_str
+00000319  00001702 R_ARM_ABS32       00000000   .debug_str
+00000320  00000202 R_ARM_ABS32       00000000   .text
+0000032f  00001702 R_ARM_ABS32       00000000   .debug_str
+0000033f  00001702 R_ARM_ABS32       00000000   .debug_str
+
+Section de relocalisation '.rel.debug_aranges' à l'adresse de décalage 0x13e8 contient 2 entrées:
+ Décalage   Info    Type            Val.-sym   Noms-symboles
+00000006  00001302 R_ARM_ABS32       00000000   .debug_info
+00000010  00000202 R_ARM_ABS32       00000000   .text
+
+Section de relocalisation '.rel.debug_line' à l'adresse de décalage 0x13f8 contient 1 entrées:
+ Décalage   Info    Type            Val.-sym   Noms-symboles
+000001c5  00000202 R_ARM_ABS32       00000000   .text
+
+Section de relocalisation '.rel.debug_frame' à l'adresse de décalage 0x1400 contient 16 entrées:
+ Décalage   Info    Type            Val.-sym   Noms-symboles
+00000014  00001902 R_ARM_ABS32       00000000   .debug_frame
+00000018  00000202 R_ARM_ABS32       00000000   .text
+00000034  00001902 R_ARM_ABS32       00000000   .debug_frame
+00000038  00000202 R_ARM_ABS32       00000000   .text
+0000005c  00001902 R_ARM_ABS32       00000000   .debug_frame
+00000060  00000202 R_ARM_ABS32       00000000   .text
+00000084  00001902 R_ARM_ABS32       00000000   .debug_frame
+00000088  00000202 R_ARM_ABS32       00000000   .text
+000000ac  00001902 R_ARM_ABS32       00000000   .debug_frame
+000000b0  00000202 R_ARM_ABS32       00000000   .text
+000000d4  00001902 R_ARM_ABS32       00000000   .debug_frame
+000000d8  00000202 R_ARM_ABS32       00000000   .text
+000000fc  00001902 R_ARM_ABS32       00000000   .debug_frame
+00000100  00000202 R_ARM_ABS32       00000000   .text
+00000124  00001902 R_ARM_ABS32       00000000   .debug_frame
+00000128  00000202 R_ARM_ABS32       00000000   .text
+

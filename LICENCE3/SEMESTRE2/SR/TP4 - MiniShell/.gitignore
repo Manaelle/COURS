@@ -1,0 +1,8 @@
+*.o
+tst
+tst.c
+shell
+chrono
+.nfs*
+*.txt
+

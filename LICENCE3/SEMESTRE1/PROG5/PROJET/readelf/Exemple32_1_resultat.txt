@@ -1,0 +1,237 @@
+***************************************************
+Mot magique : 127 E L F 
+ 
+ Classe : ELF32 
+Donnée : Little Endian 
+Version : Courant (1) 
+Type : Fichier de Relocalisation 
+Machine : ARM 
+Adresse de point d'entrée : 0
+Début des en-têtes de programme : 0 octets 
+Début des en-têtes de section: 5524 octets 
+Fanions : 5000000 
+Taille cet en-tête : 52 bytes 
+Taille de l'en-tête du programme : 0 octets 
+Nombre d'en-têtes du programme : 0 
+Taille des en-têtes de section : 40 octets 
+Nombre d'en-têtes de section : 20 
+Table d'indexes des chaînes d'en-tête de section : 17 bytes 
+
+*************************************************
+Il y a 20 en-têtes de section, débutant à l'adresse de décalage 0x1594:
+ En-têtes de section :
+ [Nr]	                     		 Nom	           Type 	     Adr 	Offset 	  Size 	ES 	Fan 	 LN 	Inf 	Al 
+ [ 0] 	                          	           NULL 	00000000 	000000 	000000 	00 	    	  0 	  0 	 0 
+ [ 1] 	                     .text	       PROGBITS 	00000000 	000034 	000254 	00 	 AX 	  0 	  0 	 4 
+ [ 2] 	                 .rel.text	            REL 	00000000 	0011bc 	000010 	08 	  I 	  18 	  1 	 4 
+ [ 3] 	                     .data	       PROGBITS 	00000000 	000288 	000014 	00 	 WA 	  0 	  0 	 4 
+ [ 4] 	                      .bss	         NOBITS 	00000000 	00029c 	000000 	00 	 WA 	  0 	  0 	 1 
+ [ 5] 	               .debug_info	       PROGBITS 	00000000 	00029c 	000596 	00 	    	  0 	  0 	 1 
+ [ 6] 	           .rel.debug_info	            REL 	00000000 	0011cc 	0002d8 	08 	  I 	  18 	  5 	 4 
+ [ 7] 	             .debug_abbrev	       PROGBITS 	00000000 	000832 	000138 	00 	    	  0 	  0 	 1 
+ [ 8] 	            .debug_aranges	       PROGBITS 	00000000 	00096a 	000020 	00 	    	  0 	  0 	 1 
+ [ 9] 	        .rel.debug_aranges	            REL 	00000000 	0014a4 	000010 	08 	  I 	  18 	  8 	 4 
+ [ 10] 	               .debug_line	       PROGBITS 	00000000 	00098a 	00018d 	00 	    	  0 	  0 	 1 
+ [ 11] 	           .rel.debug_line	            REL 	00000000 	0014b4 	000008 	08 	  I 	  18 	  10 	 4 
+ [ 12] 	                .debug_str	       PROGBITS 	00000000 	000b17 	0003ab 	01 	 MS 	  0 	  0 	 1 
+ [ 13] 	                  .comment	       PROGBITS 	00000000 	000ec2 	000039 	01 	 MS 	  0 	  0 	 1 
+ [ 14] 	              .debug_frame	       PROGBITS 	00000000 	000efc 	00007c 	00 	    	  0 	  0 	 4 
+ [ 15] 	          .rel.debug_frame	            REL 	00000000 	0014bc 	000030 	08 	  I 	  18 	  14 	 4 
+ [ 16] 	           .ARM.attributes	 ARM_ATTRIBUTES 	00000000 	000f78 	000039 	00 	    	  0 	  0 	 1 
+ [ 17] 	                 .shstrtab	         STRTAB 	00000000 	0014ec 	0000a6 	00 	    	  0 	  0 	 1 
+ [ 18] 	                   .symtab	         SYMTAB 	00000000 	000fb4 	0001a0 	10 	    	  19 	  22 	 4 
+ [ 19] 	                   .strtab	         STRTAB 	00000000 	001154 	000065 	00 	    	  0 	  0 	 1 
+
+*************************************************
+Vidange hexadecimale de la section << .text >> : 
+
+ 0x00000000 80b500af 154a154b d3f88830 43f47003 .....J.K...0C.p
+ 0x00000010 c2f88830 124a124b 1b6843f0 01031360 ...0.J.K.hC....
+ 0x00000020 0f4b0022 9a600e4a 0d4b1b68 23f08473 .K.".`.J.K.h#..
+ 0x00000030 23f48033 13600a4b 0a4a5a60 084a084b #..3.`.K.JZ`.J.
+ 0x00000040 1b6823f4 80231360 054b0022 da6000f0 .h#..#.`.K.".`.
+ 0x00000050 87f8024b 4ff00062 9a6080bd 00ed00e0 ...KO..b.`.....
+ 0x00000060 00380240 10300024 80b487b0 00af0023 .8.@.0.$.......
+ 0x00000070 3b610023 7b610223 fb600023 bb600223 ;a.#{a.#.`.#.`.
+ 0x00000080 7b60324b 9b6803f0 0c033b61 3b69042b {`2K.h....;a;i.
+ 0x00000090 07d0082b 09d0002b 3fd12d4b 2d4a1a60 ...+...+?.-K-J.
+ 0x000000a0 3fe02b4b 2c4a1a60 3be0284b 5b6803f4 ?.+K,J.`;.(K[h.
+ 0x000000b0 80039b0d bb60254b 5b6803f0 3f037b60 .....`%K[h..?.{
+ 0x000000c0 bb68002b 0dd0244a 7b68b2fb f3f21f4b .h.+..$J{h.....
+ 0x000000d0 596847f6 c0730b40 9b0903fb 02f37b61 YhG..s.@......{
+ 0x000000e0 0ce01c4a 7b68b2fb f3f2184b 596847f6 ...J{h.....KYhG
+ 0x000000f0 c0730b40 9b0903fb 02f37b61 134b5b68 .s.@......{a.K[
+ 0x00000100 03f44033 1b0c0133 5b00fb60 7a69fb68 ..@3...3[..`zi.
+ 0x00000110 b2fbf3f3 0e4a1360 03e00d4b 0d4a1a60 .....J.`...K.J.
+ 0x00000120 00bf0a4b 9b6803f0 f0031b09 0b4ad35c ...K.h.......J.
+ 0x00000130 dbb23b61 064b1a68 3b6922fa 03f3044a ..;a.K.h;i"....
+ 0x00000140 13601c37 bd465df8 047b7047 00380240 .`.7.F]..{pG.8.
+ 0x00000150 00000000 0024f400 00127a00 00000000 .....$....z....
+ 0x00000160 80b483b0 00af0023 7b600023 3b60354a .......#{`.#;`5
+ 0x00000170 344b1b68 43f48033 1360324b 1b6803f4 4K.hC..3.`2K.h.
+ 0x00000180 00333b60 7b680133 7b603b68 002b03d1 .3;`{h.3{`;h.+.
+ 0x00000190 7b68b3f5 a06ff0d1 2a4b1b68 03f40033 {h...o..*K.h...
+ 0x000001a0 002b02d0 01233b60 01e00023 3b603b68 .+...#;`...#;`;
+ 0x000001b0 012b42d1 234a234b 1b6c43f0 80531364 .+B.#J#K.lC..S.
+ 0x000001c0 214a214b 1b6843f4 80431360 1d4a1d4b !J!K.hC..C.`.J.
+ 0x000001d0 9b689360 1b4a1b4b 9b6843f4 00439360 .h.`.J.K.hC..C.
+ 0x000001e0 184a184b 9b6843f4 a0539360 154b174a .J.K.hC..S.`.K.
+ 0x000001f0 5a60144a 134b1b68 43f08073 136000bf Z`.J.K.hC..s.`.
+ 0x00000200 104b1b68 03f00073 002bf9d0 104b40f2 .K.h...s.+...K@
+ 0x00000210 05621a60 0b4a0b4b 9b6823f0 03039360 .b.`.J.K.h#....
+ 0x00000220 084a084b 9b6843f0 02039360 00bf054b .J.K.hC....`...
+ 0x00000230 9b6803f0 0c03082b f9d10c37 bd465df8 .h.....+...7.F]
+ 0x00000240 047b7047 00380240 00700040 08544007 .{pG.8.@.p.@.T@
+ 0x00000250 003c0240                            .<.@
+
+*************************************************
+Table de symboles << .symtab >> contient 26 entrees:
+Num: 	Valeur   	Tail 	Type     	Lien     	Vis        	Ndx 	Nom                       
+0 :		00000000 	0    	NOTYPE   	LOCAL    	DEFAULT    	UND 	                          	
+1 :		00000000 	0    	FILE     	LOCAL    	DEFAULT    	ABS 	system_stm32f4xx.c        	
+2 :		00000000 	0    	SECTION  	LOCAL    	DEFAULT    	001 	                          	
+3 :		00000000 	0    	SECTION  	LOCAL    	DEFAULT    	003 	                          	
+4 :		00000000 	0    	SECTION  	LOCAL    	DEFAULT    	004 	                          	
+5 :		00000000 	0    	NOTYPE   	LOCAL    	DEFAULT    	003 	$d                        	
+6 :		00000000 	0    	NOTYPE   	LOCAL    	DEFAULT    	001 	$t                        	
+7 :		00000161 	244  	FUNC     	LOCAL    	DEFAULT    	001 	SetSysClock               	
+8 :		0000005c 	0    	NOTYPE   	LOCAL    	DEFAULT    	001 	$d                        	
+9 :		00000068 	0    	NOTYPE   	LOCAL    	DEFAULT    	001 	$t                        	
+10 :	0000014c 	0    	NOTYPE   	LOCAL    	DEFAULT    	001 	$d                        	
+11 :	00000160 	0    	NOTYPE   	LOCAL    	DEFAULT    	001 	$t                        	
+12 :	00000244 	0    	NOTYPE   	LOCAL    	DEFAULT    	001 	$d                        	
+13 :	00000000 	0    	SECTION  	LOCAL    	DEFAULT    	005 	                          	
+14 :	00000000 	0    	SECTION  	LOCAL    	DEFAULT    	007 	                          	
+15 :	00000000 	0    	SECTION  	LOCAL    	DEFAULT    	008 	                          	
+16 :	00000000 	0    	SECTION  	LOCAL    	DEFAULT    	010 	                          	
+17 :	00000000 	0    	SECTION  	LOCAL    	DEFAULT    	012 	                          	
+18 :	00000010 	0    	NOTYPE   	LOCAL    	DEFAULT    	014 	$d                        	
+19 :	00000000 	0    	SECTION  	LOCAL    	DEFAULT    	014 	                          	
+20 :	00000000 	0    	SECTION  	LOCAL    	DEFAULT    	013 	                          	
+21 :	00000000 	0    	SECTION  	LOCAL    	DEFAULT    	016 	                          	
+22 :	00000000 	4    	OBJECT   	GLOBAL   	DEFAULT    	003 	SystemCoreClock           	
+23 :	00000004 	16   	OBJECT   	GLOBAL   	DEFAULT    	003 	AHBPrescTable             	
+24 :	00000001 	104  	FUNC     	GLOBAL   	DEFAULT    	001 	SystemInit                	
+25 :	00000069 	248  	FUNC     	GLOBAL   	DEFAULT    	001 	SystemCoreClockUpdate     	
+*************************************************
+Section de relocalisation '.rel.text' a l'adresse de decalage 0x11bc contient 2 entrees: 
+ 
+Decalage 	Info     	Type            	Val.-sym 	Nom.-sym             
+00000150 	00001602 	R_ARM_ABS32     	00000000 	SystemCoreClock
+0000015c 	00001702 	R_ARM_ABS32     	00000000 	AHBPrescTable
+*************************************************
+Section de relocalisation '.rel.debug_info' a l'adresse de decalage 0x11cc contient 91 entrees: 
+ 
+Decalage 	Info     	Type            	Val.-sym 	Nom.-sym             
+00000006 	00000e02 	R_ARM_ABS32     	00000000 	.debug_abbrev
+0000000c 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000011 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000015 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000019 	00000202 	R_ARM_ABS32     	00000000 	.text
+00000021 	00001002 	R_ARM_ABS32     	00000000 	.debug_line
+00000028 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000002d 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000003a 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000041 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000046 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000053 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000058 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000065 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000006a 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000077 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000007e 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000085 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000093 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000098 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000000a3 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000000ae 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000000b9 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000000c6 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000000d9 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000000e6 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000000f3 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000100 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000134 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000141 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000014e 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000015b 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000168 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000175 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000182 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000001b6 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000001c3 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000001d0 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000001dd 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000253 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000026d 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000290 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000029d 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000002c2 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000002d0 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000002ff 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000320 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000032d 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000347 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000354 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000361 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000036e 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000037b 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000388 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000395 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000003a2 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000003af 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000003bc 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000003c9 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000003d6 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000003e3 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000003f0 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000003fd 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000040a 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000417 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000424 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000431 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000043e 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000044b 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000458 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000472 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000047f 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000048c 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000049a 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000004a6 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000004ac 	00000202 	R_ARM_ABS32     	00000000 	.text
+000004b7 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000004be 	00000202 	R_ARM_ABS32     	00000000 	.text
+000004dc 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000004eb 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+000004fa 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000509 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000519 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000520 	00000202 	R_ARM_ABS32     	00000000 	.text
+0000052f 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000053e 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000054e 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+0000055a 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000566 	00001602 	R_ARM_ABS32     	00000000 	SystemCoreClock
+0000057b 	00001102 	R_ARM_ABS32     	00000000 	.debug_str
+00000587 	00001702 	R_ARM_ABS32     	00000000 	AHBPrescTable
+*************************************************
+Section de relocalisation '.rel.debug_aranges' a l'adresse de decalage 0x14a4 contient 2 entrees: 
+ 
+Decalage 	Info     	Type            	Val.-sym 	Nom.-sym             
+00000006 	00000d02 	R_ARM_ABS32     	00000000 	.debug_info
+00000010 	00000202 	R_ARM_ABS32     	00000000 	.text
+*************************************************
+Section de relocalisation '.rel.debug_line' a l'adresse de decalage 0x14b4 contient 1 entrees: 
+ 
+Decalage 	Info     	Type            	Val.-sym 	Nom.-sym             
+00000123 	00000202 	R_ARM_ABS32     	00000000 	.text
+*************************************************
+Section de relocalisation '.rel.debug_frame' a l'adresse de decalage 0x14bc contient 6 entrees: 
+ 
+Decalage 	Info     	Type            	Val.-sym 	Nom.-sym             
+00000014 	00001302 	R_ARM_ABS32     	00000000 	.debug_frame
+00000018 	00000202 	R_ARM_ABS32     	00000000 	.text
+00000030 	00001302 	R_ARM_ABS32     	00000000 	.debug_frame
+00000034 	00000202 	R_ARM_ABS32     	00000000 	.text
+00000058 	00001302 	R_ARM_ABS32     	00000000 	.debug_frame
+0000005c 	00000202 	R_ARM_ABS32     	00000000 	.text

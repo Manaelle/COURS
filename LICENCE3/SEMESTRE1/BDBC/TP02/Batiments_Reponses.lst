@@ -1,0 +1,6 @@
+inner join batiments.LesPieces
+                             *
+ERROR at line 3:
+ORA-00905: missing keyword 
+
+

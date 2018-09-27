@@ -1,0 +1,30 @@
+Il y a 20 en-têtes de section, débutant à l'adresse de décalage 0x1f9c:
+
+En-têtes de section:
+  [Nr] Nom               Type            Adr      Décala.Taille ES Fan LN Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000 000034 00048c 00  AX  0   0  4
+  [ 2] .rel.text         REL             00000000 0019a4 000090 08   I 18   1  4
+  [ 3] .data             PROGBITS        00000000 0004c0 000000 00  WA  0   0  1
+  [ 4] .bss              NOBITS          00000000 0004c0 000000 00  WA  0   0  1
+  [ 5] .debug_info       PROGBITS        00000000 0004c0 000606 00      0   0  1
+  [ 6] .rel.debug_info   REL             00000000 001a34 0003c8 08   I 18   5  4
+  [ 7] .debug_abbrev     PROGBITS        00000000 000ac6 0001a5 00      0   0  1
+  [ 8] .debug_aranges    PROGBITS        00000000 000c6b 000020 00      0   0  1
+  [ 9] .rel.debug_arange REL             00000000 001dfc 000010 08   I 18   8  4
+  [10] .debug_line       PROGBITS        00000000 000c8b 00026b 00      0   0  1
+  [11] .rel.debug_line   REL             00000000 001e0c 000008 08   I 18  10  4
+  [12] .debug_str        PROGBITS        00000000 000ef6 0004e6 01  MS  0   0  1
+  [13] .comment          PROGBITS        00000000 0013dc 000039 01  MS  0   0  1
+  [14] .debug_frame      PROGBITS        00000000 001418 00023c 00      0   0  4
+  [15] .rel.debug_frame  REL             00000000 001e14 0000e0 08   I 18  14  4
+  [16] .ARM.attributes   ARM_ATTRIBUTES  00000000 001654 000039 00      0   0  1
+  [17] .shstrtab         STRTAB          00000000 001ef4 0000a6 00      0   0  1
+  [18] .symtab           SYMTAB          00000000 001690 000200 10     19  17  4
+  [19] .strtab           STRTAB          00000000 001890 000112 00      0   0  1
+Clé des fanions:
+  W (écriture), A (allocation), X (exécution), M (fusion), S (chaînes)
+  I (info), L (ordre des liens), G (groupe), T (TLS), E (exclu), x (inconnu)
+  O (traiterment additionnel requis pour l'OS) o (spécifique à l'OS), p (spécifique au processeur)
+
+

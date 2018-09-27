@@ -1,0 +1,90 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyheadings}
+\usepackage[francais]{babel}
+\usepackage{verbatim}
+
+
+
+\begin{document}
+\section*{T9ogrammes}
+\noindent
+\textbf{Description :}  Il s'agit de déterminer si deux mots sont des T9ogrammes.\\
+Deux mots sont des T9ogrammes s'ils s'écrivent avec les mêmes touches sur un clavier T9.\\
+Par exemple, pour un clavier T9 "classique" :
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ 1 & 2 & 3\\
+ & abc & def\\
+\hline
+ 4 & 5 & 6\\
+ ghi & jkl & mno\\
+\hline
+ 7 & 8 & 9\\
+ pqrs & tuv & wxyz\\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent
+Le mot "caribou" s'écrit en appuyant sur 2(c) 2(a) 7(r) 4(i) 2(b) 6(o) 8(u).\\
+Le mot "abricot" s'écrit en appuyant sur 2(a) 2(b) 7(r) 4(i) 2(c) 6(o) 8(t).\\
+Donc "caribou" et "abricot" sont des T9ogrammes.
+
+~\\
+\textbf{Données lues sur l'entrée standard :}\\
+Sur une première ligne, les deux mots à tester, séparés par un espace.\\
+Puis, sur les lignes suivantes, la configuration du clavier ; sur chaque ligne :
+\begin{itemize}
+\item Le numéro de la touche
+\item le caractère ':'
+\item l'ensemble de lettres associées à la touche (uniquement minuscules de a à z, non accentuées)
+\end{itemize}
+~\\
+\textbf{Affichage à produire :}\\
+Sur une ligne,
+\begin{itemize}
+\item Si les deux mots forment un T9ogramme : "oui" suivi du code de chaque lettre séparés par des espaces
+\item Si les deux mots ne forment pas un T9ogramme : "non"
+\end{itemize}
+~\\
+\noindent
+\textbf{Exemple 1 :}\\
+\noindent
+Entrée~:
+\begin{verbatim}
+caribou abricot
+2:abc
+3:def
+4:ghi
+5:jkl
+6:mno
+7:pqrs
+8:tuv
+9:wxyz
+\end{verbatim}
+
+\noindent
+Sortie~:
+\begin{verbatim}
+oui 2 2 7 4 2 6 8
+\end{verbatim}
+~\\
+\noindent
+\textbf{Exemple 2 :}\\
+\noindent
+Entrée~:
+\begin{verbatim}
+coucou salut
+4:ac
+42:olt
+421:us
+\end{verbatim}
+
+\noindent
+Sortie~:
+\begin{verbatim}
+non
+\end{verbatim}
+\end{document}

@@ -1,0 +1,5 @@
+Pour exécuter, faire : 
+
+./baseball
+
+C'est tout !

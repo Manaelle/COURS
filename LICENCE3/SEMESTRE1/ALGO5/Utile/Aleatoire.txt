@@ -1,0 +1,13 @@
+Utilisation du Random en C :
+
+On initialise que UNE fois : On oublie pas #include <time.h>
+srand(time(NULL));
+
+Pour générer un nombre aléatoire n :
+n = rand();
+
+Pour générer un nombre aléatoire n entre [0, X[:
+n = rand()%X;
+
+Pour générer un nombre aléatoire n entre [a, b[:
+n = rand()%(b-a) +a;

@@ -1,0 +1,143 @@
+
+   SALAIRE                                                                      
+----------                                                                      
+       140                                                                      
+       160                                                                      
+
+
+       NOC                                                                      
+----------                                                                      
+         1                                                                      
+         2                                                                      
+         3                                                                      
+         4                                                                      
+
+
+       NOC                                                                      
+----------                                                                      
+         1                                                                      
+         2                                                                      
+         3                                                                      
+         4                                                                      
+
+
+no rows selected
+
+
+no rows selected
+
+
+       NOC                                                                      
+----------                                                                      
+         1                                                                      
+         2                                                                      
+         3                                                                      
+         4                                                                      
+
+
+       NOP       NOTR                                                           
+---------- ----------                                                           
+         9          2                                                           
+         9          3                                                           
+        10          4                                                           
+        10          7                                                           
+        10          5                                                           
+        11          8                                                           
+        11          9                                                           
+        11        108                                                           
+        11        118                                                           
+        11         10                                                           
+        11         11                                                           
+
+       NOP       NOTR                                                           
+---------- ----------                                                           
+        11         12                                                           
+         9        119                                                           
+         9        138                                                           
+         9        140                                                           
+         9        150                                                           
+         9        151                                                           
+         9        152                                                           
+                    1                                                           
+
+19 rows selected.
+
+
+      NOTR        NOP IMMAT                MARQUE                               
+---------- ---------- -------------------- --------------------                 
+        12         11 1 A 38               renault                              
+       152          9 1 A 38               renault                              
+         5         10 1675 WZ 38           renault                              
+         8         11 1675 WZ 38           renault                              
+         7         10 1675 WZ 38           renault                              
+         4         10 1675 WZ 38           renault                              
+         3          9 1675 WZ 38           renault                              
+       119          9 18 CHX 38            renault                              
+       150          9 18 CHX 38            renault                              
+         9         11 18 CHX 38            renault                              
+        10         11 18 CHX 38            renault                              
+
+      NOTR        NOP IMMAT                MARQUE                               
+---------- ---------- -------------------- --------------------                 
+       151          9 181 CHX 38           daf                                  
+        11         11 181 CHX 38           daf                                  
+       138          9 19 CHX 38            renault                              
+         2          9 19 CHX 38            renault                              
+       108         11 19 CHX 38            renault                              
+       140          9 20 CHX 38            renault                              
+       118         11 20 CHX 38            renault                              
+
+18 rows selected.
+
+
+VILLE                                                                           
+--------------------                                                            
+Grenoble                                                                        
+Lyon                                                                            
+Marseille                                                                       
+Paris                                                                           
+
+
+       NOP NOM                  PRENOM                                          
+---------- -------------------- --------------------                            
+        10 Frehse               Goran                                           
+         1 Peyrin               Jean-Pierre                                     
+        12 Tata                 Catherine                                       
+        11 L'enchanteur         Merlin                                          
+         9 Bouchenak            Sara                                            
+        15 azeae                cccccc                                          
+
+6 rows selected.
+
+
+       NOP                                                                      
+----------                                                                      
+         9                                                                      
+
+
+IMMAT                                                                           
+--------------------                                                            
+19 CHX 38                                                                       
+19 CHX 38                                                                       
+1675 WZ 38                                                                      
+1675 WZ 38                                                                      
+1675 WZ 38                                                                      
+1675 WZ 38                                                                      
+1675 WZ 38                                                                      
+1675 WZ 38                                                                      
+1675 WZ 38                                                                      
+18 CHX 38                                                                       
+18 CHX 38                                                                       
+
+IMMAT                                                                           
+--------------------                                                            
+18 CHX 38                                                                       
+18 CHX 38                                                                       
+
+13 rows selected.
+
+
+IMMAT                DATEACHAT                                                  
+-------------------- ---------                                                  
+1 A 38               01-JAN-45                                                  
+

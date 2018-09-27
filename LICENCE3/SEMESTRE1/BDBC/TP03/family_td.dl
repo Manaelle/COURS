@@ -1,0 +1,138 @@
+%
+% Family
+%
+% Datalog Formulation
+
+% Optionally declare types
+:-type(father(father:string,child:string)).
+father(tom,amy).
+father(jack,fred).
+father(tony,carolII).
+father(fred,carolIII).
+father(matt,jack).
+father(matt, marie).
+father(jack,jessie).
+
+% Optionally declare types
+:-type(mother(mother:string,child:string)).
+mother(grace,amy).
+mother(amy,fred).
+mother(carolI,carolII).
+mother(carolII,carolIII).
+mother(susan,jack).
+mother(susan,marie).
+mother(doris,jessie).
+mother(amy,morgan).
+
+% Optionally declare types
+:-type(maried(maried:string,maried:string)).
+maried(carolI,tony).
+maried(grace,tom).
+maried(susan,matt).
+maried(amy,jack).
+
+maried(carolII,fred).
+
+female(marie).
+
+parent(X,Y) :- 
+  father(X,Y)
+  ; 
+  mother(X,Y).
+  
+sibling(X,Y) :-
+	parent(Z,X)
+	,
+	parent(Z,Y)
+	,
+	X \= Y.
+	
+person(X) :-
+	parent(X,Y)
+	;
+	parent(Y,X).
+	
+male(X) :-
+	father(X,Y)
+	,
+	person(X).
+	
+female(X) :-
+	mother(X,Y)
+	,
+	person(X).
+	
+unknown_gender(X) :-
+	person(X)
+	,
+	not( male(X ))
+	,
+	not( female(X)).
+	
+partner(X,Y) :-
+	parent(X,Z)
+	,
+	parent(Y,Z)
+	,
+	X \= Y.
+	
+stepparent(X,A) :-
+	maried(B,A)
+	,
+	parent(X,B).
+	
+marriable(A,B) :-
+	person(A)
+	,
+	person(B)
+	,
+	person(X)
+	,
+	not( maried(A,X))
+	,
+	not( maried(B,X))
+	,
+	not( ancestor(A,B))
+	,
+	not( ancestor(B,A))
+	,
+	not( sibling(A,B))
+	,
+	not( stepparent(A,B))
+	,
+	not( stepparent(B,A))
+	,
+	A \= B.
+	
+uncle(X,Y) :-
+	parent(Z,Y)
+	,
+	sibling(X,Z)
+	,
+	male(X).
+	
+aunt(X,Y) :-
+	parent(Z,Y)
+	,
+	sibling(X,Z)
+	,
+	female(X).
+	
+cousin(X,Y) :-
+	(uncle(Z,X)
+	;
+	aunt(Z,X))
+	,
+	parent(Z,Y).
+	
+% The above clause for parent is equivalent to:  
+% parent(X,Y) :- 
+%   father(X,Y).
+% parent(X,Y) :- 
+%   mother(X,Y).
+
+ancestor(X,Y) :- 
+  parent(X,Y).
+ancestor(X,Y) :- 
+  parent(X,Z), 
+  ancestor(Z,Y).

@@ -1,0 +1,23 @@
+APNEE02 : Manal BENAISSA, Groupe 2
+
+UTILISATION :
+
+1. Assurez vous de placer tous vos programmes à tester dans un seul dossier (PROG_TEST par défaut).
+
+2. Placez vos tests dans un AUTRE dossier /TESTS : 
+	Vous séparerez vos bons tests (contenant un bon parenthesage) dans TESTS/TEST_OK
+	et vos mauvais tests (contenant un mauvais parenthesage) dans TESTS/TEST_NOTOK
+	
+3. Lancez parenthesage.sh comme suit :
+	./parenthesage.sh [NOM_DOSSIER_CONTENANT_LES_PROGRAMMES]
+	(si aucun argument n'est mis, PROG_TEST/ est pris par défaut)
+	
+RESULTAT :
+
+Les mauvais programmes seront placés dans PROG_ERROR, les bons restent dans PROG_OK.
+Un rapport d'erreur vous est donné, précisant, pour chaque programmes de PROG_ERROR, les erreurs trouvées.
+Le nom du rapport est Liste_Erreurs_Programmes.txt.
+
+REMARQUE :
+
+On peut ajouter autant de tests que l'on souhaite, pour peu qu'ils soient rangés dans les bons dossiers.

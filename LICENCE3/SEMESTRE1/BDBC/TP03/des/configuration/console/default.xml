@@ -1,0 +1,9 @@
+<acide.configuration.console.AcideConsoleCommandsConfiguration>
+  <__commandsManager>
+    <__list>
+      <__list>
+        <string>/generate_db 3 3 10 4 3 p.sql</string>
+      </__list>
+    </__list>
+  </__commandsManager>
+</acide.configuration.console.AcideConsoleCommandsConfiguration>

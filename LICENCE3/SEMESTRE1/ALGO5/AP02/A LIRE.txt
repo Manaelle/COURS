@@ -1,0 +1,12 @@
+UTILISATION :
+
+1. Exécuter "parenthesage" comme suit : ./parenthesage
+
+2. La console vous demande de choisir l'option "1" ou "2" :
+		1 : pour générer deux fichiers txt de test, dont un texte bien parenthésé, et un texte mal parenthésé.
+		
+		2: Vérifie le parenthesage du fichier texte demandé par la suite. Renvoie "Bon parenthesage" ou "mauvais parenthesage"
+		
+3. La console demande ensuite, selon l'option, le nom du fichier.
+
+

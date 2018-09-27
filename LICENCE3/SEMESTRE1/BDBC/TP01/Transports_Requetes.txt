@@ -1,0 +1,8 @@
+start Bureau/COURS/BDBC/Transports.sql
+start Bureau/COURS/BDBC/Batiments.sql
+
+---------------------------- REQUETES ----------------------------------
+select distinct salaire
+from camions.LesPersonnes
+natural join camions.LesSecretaires;
+

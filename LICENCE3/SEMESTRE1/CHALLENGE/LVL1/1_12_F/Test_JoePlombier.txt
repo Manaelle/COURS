@@ -1,0 +1,13 @@
+6 5
+5
+A.b.z
+..G.K
+...Z.
+...k.
+...gB
+.a...
+A:S.S.S.S.S.SE
+G:S.S.S.SE
+B:S.SW.NW.NW.N.N.N.N.NE
+Z:N.N.NE
+K:S.S.SW

@@ -1,0 +1,22 @@
+Il y a 14 en-têtes de section, débutant à l'adresse de décalage 0x1534:
+
+En-têtes de section:
+  [Nr] Nom               Type            Adr      Décala.Taille ES Fan LN Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000 000034 000014 00  AX  0   0  1
+  [ 2] .rel.text         REL             00000000 001164 000028 08   I 12   1  4
+  [ 3] .data             PROGBITS        00000000 000048 000000 00  WA  0   0  1
+  [ 4] .bss              NOBITS          00000000 000048 000000 00  WA  0   0  1
+  [ 5] .text.Reset_Handl PROGBITS        00000000 000048 000048 00  AX  0   0  4
+  [ 6] .rel.text.Reset_H REL             00000000 00118c 000040 08   I 12   5  4
+  [ 7] .text.Default_Han PROGBITS        00000000 000090 000002 00  AX  0   0  2
+  [ 8] .isr_vector       PROGBITS        00000000 000092 000188 00   A  0   0  1
+  [ 9] .rel.isr_vector   REL             00000000 0011cc 0002e8 08   I 12   8  4
+  [10] .ARM.attributes   ARM_ATTRIBUTES  00000000 00021a 000021 00      0   0  1
+  [11] .shstrtab         STRTAB          00000000 0014b4 00007e 00      0   0  1
+  [12] .symtab           SYMTAB          00000000 00023c 000780 10     13  17  4
+  [13] .strtab           STRTAB          00000000 0009bc 0007a7 00      0   0  1
+Clé des fanions:
+  W (écriture), A (allocation), X (exécution), M (fusion), S (chaînes)
+  I (info), L (ordre des liens), G (groupe), T (TLS), E (exclu), x (inconnu)
+  O (traiterment additionnel requis pour l'OS) o (spécifique à l'OS), p (spécifique au processeur)

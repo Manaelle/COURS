@@ -1,0 +1,4 @@
+Vidange hexadécimale de la section « .text »:
+ NOTE: Cette section a des relocalisations mais elles n'ont PAS été appliquées dans cette vidange.
+  0x00000000 00000000 00000000 00000000 00000000 ................
+  0x00000010 00000000  

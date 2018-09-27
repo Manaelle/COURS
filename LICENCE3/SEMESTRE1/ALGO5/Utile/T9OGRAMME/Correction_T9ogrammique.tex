@@ -1,0 +1,180 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyheadings}
+\usepackage[francais]{babel}
+\usepackage{verbatim}
+
+
+
+\begin{document}
+\section*{Correction T9ogrammique}
+\noindent
+\textbf{Description :}  Il s'agit de traduire et corriger un mot, écrit avec un clavier T9 (voir "T9ogrammes").
+
+~\\
+Le programme prend en entrée un ensemble de mots (dictionnaire), et une séquence de touches tapées au clavier.
+Le programme doit alors déterminer le ou les mots correct(s) le(s) plus proche(s) de la séquence de touches (c'est-à-dire ayant la distance minimale avec la séquence de touches).
+~\\
+~\\
+On définit comme suit la distance entre deux codes T9 :\\
+La distance d'un code à un autre est donnée par le nombre minimal de modifications à faire pour passer de l'un à l'autre : ces modifications peuvent être une insertion, une suppression, ou un changement d'une touche.
+
+~\\
+\noindent
+Sur un clavier T9 "classique" :
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ 1 & 2 & 3\\
+ & abc & def\\
+\hline
+ 4 & 5 & 6\\
+ ghi & jkl & mno\\
+\hline
+ 7 & 8 & 9\\
+ pqrs & tuv & wxyz\\
+\hline
+\end{tabular}
+\end{center}
+\noindent
+\begin{itemize}
+\item "dans" a pour code 3267
+\item "sans" a pour code 7267
+\end{itemize}
+Donc "dans" et "sans" sont à une distance 1 l'un de l'autre (un changement de touche).
+
+~\\
+~\\
+\noindent
+\textbf{Exemple 1 :}
+\begin{itemize}
+\item Clavier T9 classique
+\item Dictionnaire : dans avec sans
+\item Séquence de touches : 7268
+\item Correction(s) optimale(s) : sans
+\end{itemize}
+
+~\\
+\noindent
+Les codes des mots sont :
+\begin{itemize}
+\item "dans" : 3267
+\item "avec" : 2832
+\item "sans" : 7267
+\end{itemize}
+Donc les distances avec 7268 sont de 2 pour "dans", 4 pour "avec", et 1 pour "sans".
+La correction optimale est donc "sans".
+
+~\\
+~\\
+\noindent
+Attention, les mots n'ont pas forcément la même longueur !
+~\\
+\noindent
+\textbf{Exemple 2 :}
+\begin{itemize}
+\item Clavier T9 classique
+\item Dictionnaire : papier boite
+\item Séquence de touches : 72437
+\item Correction(s) optimale(s) : papier
+\end{itemize}
+
+~\\
+\noindent
+Les codes des mots sont :
+\begin{itemize}
+\item "papier" : 727437
+\item "boite" : 26483
+\end{itemize}
+Donc les distances avec 72437 sont de 4 pour "boite", et 1 pour "papier" (1 insertion).
+La correction optimale est donc "papier".
+
+~\\
+Si il existe plusieurs corrections optimales, le programme devra les afficher toutes par ordre lexicographique.
+
+~\\
+\textbf{Données lues sur l'entrée standard :}\\
+Sur une première ligne, un ensemble de mots constituant le dictionnaire, séparés par des espaces.\\
+Sur la deuxième ligne, la séquence de touches, séparées par des espaces.\\
+Puis, sur les lignes suivantes, la configuration du clavier ; sur chaque ligne :
+\begin{itemize}
+\item Le numéro de la touche
+\item le caractère ':'
+\item l'ensemble de lettres associées à la touche (uniquement minuscules de a à z, non accentuées)
+\end{itemize}
+~\\
+\textbf{Affichage à produire :}\\
+Sur une ligne, séparées par des espaces, la (les) correction(s) optimale(s) pour la séquence de touches (triées par ordre lexicographique).
+~\\
+~\\
+\noindent
+\textbf{Exemple 1 :}\\
+\noindent
+Entrée~:
+\begin{verbatim}
+dans avec sans
+7 2 6 8
+2:abc
+3:def
+4:ghi
+5:jkl
+6:mno
+7:pqrs
+8:tuv
+9:wxyz
+\end{verbatim}
+
+\noindent
+Sortie~:
+\begin{verbatim}
+sans
+\end{verbatim}
+~\\
+~\\
+\noindent
+\textbf{Exemple 2 :}\\
+\noindent
+Entrée~:
+\begin{verbatim}
+papier boite
+7 2 4 3 7
+2:abc
+3:def
+4:ghi
+5:jkl
+6:mno
+7:pqrs
+8:tuv
+9:wxyz
+\end{verbatim}
+
+\noindent
+Sortie~:
+\begin{verbatim}
+papier
+\end{verbatim}
+~\\
+~\\
+\noindent
+\textbf{Exemple 3 :}\\
+\noindent
+Entrée~:
+\begin{verbatim}
+ping pong long
+2 6 6 4
+2:abc
+3:def
+4:ghi
+5:jkl
+6:mno
+7:pqrs
+8:tuv
+9:wxyz
+\end{verbatim}
+
+\noindent
+Sortie~:
+\begin{verbatim}
+long pong
+\end{verbatim}
+\end{document}
