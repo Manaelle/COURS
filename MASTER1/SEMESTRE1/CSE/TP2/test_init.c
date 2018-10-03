@@ -23,11 +23,12 @@
 }*/
 
 int main(int argc, char *argv[]) {
+	
+	void *result, *resultFB;
+	
 	fprintf(stderr, "Test réalisant de multiples fois une initialisation suivie d'une alloc max.\n"
 			"Définir DEBUG à la compilation pour avoir une sortie un peu plus verbeuse."
  		"\n");
-	
-	mem_init(get_memory_adr(), get_memory_size());
 	
 	/*for (int i=0; i<NB_TESTS; i++) {
 		mem_init(get_memory_adr(), get_memory_size());
@@ -35,5 +36,29 @@ int main(int argc, char *argv[]) {
 	}*/
 
 	// TEST OK
+	mem_init(get_memory_adr(), get_memory_size());
+	
+	result = mem_alloc((size_t)1000);
+	debug("Alloced %zu bytes at %p\n", (size_t)1000, result);
+	
+	result = mem_alloc((size_t)500);
+	debug("Alloced %zu bytes at %p\n", (size_t)500, result);
+	
+	resultFB = mem_alloc((size_t)2000);
+	debug("Alloced %zu bytes at %p\n", (size_t)2000, resultFB);
+	
+	result = mem_alloc((size_t)400);
+	debug("Alloced %zu bytes at %p\n", (size_t)400, result);
+	
+	mem_free(resultFB);
+	debug("Freeing at %p\n", resultFB);
+	
+	result = mem_alloc((size_t)500);
+	debug("Alloced %zu bytes at %p\n", (size_t)500, result);
+	
+	//mem_free(result);
+	//debug("Freeing at %p\n", result);
+	
+	printf("FIN");
 	return 0;
 }

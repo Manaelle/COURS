@@ -18,7 +18,7 @@ void mem_show(void (*print)(void *, size_t, int free));
 
 /* Choix de la strategie et strategies usuelles */
 typedef fb* (mem_fit_function_t)(fb* T, size_t s);
-void mem_fit(mem_fit_function_t *f);
+fb* mem_fit(mem_fit_function_t *f);
 
 struct fb* mem_fit_first(struct fb*, size_t);
 
