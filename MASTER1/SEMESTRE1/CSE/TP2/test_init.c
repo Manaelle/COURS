@@ -3,39 +3,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-
 #define NB_TESTS 10
-
-/*static void *alloc_max(size_t estimate) {
-	void *result;
-	static size_t last = 0;
-
-	while ((result = mem_alloc(estimate)) == NULL) {
-		estimate--;
-	}
-	debug("Alloced %zu bytes at %p\n", estimate, result);
-	if (last) {
-		// Idempotence test
-		assert(estimate == last);
-	} else
-		last = estimate;
-	return result;
-}*/
 
 int main(int argc, char *argv[]) {
 	
 	void *result, *resultFB;
 	
-	fprintf(stderr, "Test réalisant de multiples fois une initialisation suivie d'une alloc max.\n"
-			"Définir DEBUG à la compilation pour avoir une sortie un peu plus verbeuse."
- 		"\n");
+	fprintf(stderr, "\n\nTest basique de mémoire. J'ai supprimé l'ancien test car pas assez précis.\n"
+			"On va allouer/libérer différentes zones afin de tester les cas possibles.\n T (pour 'tête') correspond au pointeur vers la tête de la liste chainée. \n AC (pour 'Adresse Courante') est le FB pointé lors du parcours de la chaine. \n AP (pour 'Adresse Précédente') est le FB précédant AC. \n newFB est tout simplement l'adresse vers la nouvelle zone libre crée. \n Ces infos vont aider (lors d'une éventuelle présentation) à bien montrer la construction de la mémoire en cours d'exécution.\n \n"
+ 		"(Désolé, ça va être TRES verbeux...)\n\n");
 	
-	/*for (int i=0; i<NB_TESTS; i++) {
-		mem_init(get_memory_adr(), get_memory_size());
-		alloc_max(get_memory_size());
-	}*/
-
-	// TEST OK
 	mem_init(get_memory_adr(), get_memory_size());
 	
 	result = mem_alloc((size_t)1000);
@@ -56,9 +33,10 @@ int main(int argc, char *argv[]) {
 	result = mem_alloc((size_t)500);
 	debug("Alloced %zu bytes at %p\n", (size_t)500, result);
 	
-	//mem_free(result);
-	//debug("Freeing at %p\n", result);
+	printf("\n---------------------------------\n");
+	printf("TEST MEM_GET_SIZE : la dernière zone allouée fait bien %zu octets. \n", mem_get_size(result));
 	
-	printf("FIN");
+	
+	printf("\n \nFIN !\n");
 	return 0;
 }

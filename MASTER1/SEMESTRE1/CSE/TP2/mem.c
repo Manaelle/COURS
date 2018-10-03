@@ -26,7 +26,10 @@ typedef struct memoire{
 }memoire;
 
 memoire M;
+
+//DONNEES SUPLLEMENTAIRES
 size_t size_to_alloc;
+mem_fit_function_t* fonction_recherche; //permet de choisir entre mem_fit_first/best/worst
 //-----------------------------------------
 //--------------- FONCTIONS ---------------
 //-----------------------------------------
@@ -42,41 +45,98 @@ void mem_init(char* mem, size_t taille){
 	T->taille = taille - sizeof(fb *) - sizeof(fb) ;
 	T->next = NULL;
 	
+	fonction_recherche = &mem_fit_first;
+	
 	printf("---------------------------------\n");
 	printf("INITIALISATION :\n Adresse de T : %p \n Nombre de zones libres : 1 \n Taille disponible :%zu \n", T, T->taille);
 }	
 //-----------------------------------------
 //RECHERCHE : Cherche la première zone mémoire libre AC assez grande dans la liste chainée T,
-//Si AC est le dernier de la liste -> créer un nouveau FB en fin de liste
-// Sinon, rediriger AP->next vers AC->next
-//Prend la liste T et une taille size en paramètre, retourne AC.
 fb* mem_fit_first(fb* T, size_t size){
 		
 		fb* AC = T; //Le FB actuel
-		fb* AP = T; //le FB précédent
-		
-		printf("---------------------------------\n");
-		printf("ALLOCATION DE %zu OCTETS (+%lu octets pour UB) :\n", size, sizeof(ub));
-		
-		//ETAPE 1 : Chercher une zone libre assez grande dans la mémoire pour l'allouer.
+			
 		while((AC != NULL)&&((AC->taille) <= size+sizeof(ub))){
+			AC = AC->next;
+		}			
+		
+	return AC;	
+}
+//-----------------------------------------
+fb* mem_fit_best(fb* T, size_t size){
+		
+		fb *AC =T, *minAC=T; 
+		size_t size_min = T->taille;
+		
+		while(AC != NULL){
+
+			if(((AC->taille)>size+sizeof(ub))&&(AC->taille<size_min)){
+				minAC = AC;
+				size_min = AC->taille;
+			}
+			
+			AC = AC->next;
+		}			
+		
+	return minAC;
+}
+//-----------------------------------------
+fb* mem_fit_worst(fb* T, size_t size){
+		
+		fb *AC=T, *maxAC=T; 
+		size_t size_max = T->taille;
+		
+		while(AC != NULL){
+			if(((AC->taille)>size+sizeof(ub))&&(AC->taille>size_max)){
+				maxAC = AC;
+				size_max = AC->taille;
+			}
+			AC = AC->next;
+		}			
+		
+	return maxAC;
+}
+//-----------------------------------------
+fb* mem_fit(mem_fit_function_t* f){
+
+	fb * T = *((fb**)M.mem);
+	fb* AC = f(T, size_to_alloc);
+	return AC;
+	
+}
+//-----------------------------------------
+void* mem_alloc(size_t S) {
+	
+	fb * T = *((fb**)M.mem);
+	ub * newU; //La future zone à allouer
+	fb* AC = T; //Le FB actuel
+	fb* AP = T; //le FB précédent
+	
+	printf("---------------------------------\n");
+	printf("ALLOCATION DE %zu OCTETS (+%lu octets pour UB) :\n", S, sizeof(ub));
+	
+	//ETAPE 1 ET 2 : Chercher une zone libre et remanipuler la liste chainée.
+	size_to_alloc = S;
+	newU = (ub*)mem_fit(fonction_recherche); //retourne l'adresse où écrire newU
+	printf("\nnewU trouvé : %p\n\n", newU);
+	//ETAPE 2 : On change la liste chainée pour exclure AC (qui sera remplacé par UB+ZONE_ALLOUEE)
+		while((AC !=NULL)&&(AC != (fb*)newU)){
 			AP = AC;
 			AC = AC->next;
-		}		
+		}	
 		
-		//ETAPE 2 : On change la liste chainée pour exclure AC (qui sera remplacé par UB+ZONE_ALLOUEE)
 		if(AC != NULL){
 			
-			printf("\nTAILLE AC vs SIZE+UB :%zu   %zu)\n", AC->taille, size+sizeof(ub));
+			printf("\nTAILLE AC vs SIZE+UB :%zu   %zu)\n", AC->taille, S+sizeof(ub));
 			
 			//CAS 1 : cas où on doit créer un nouveau FB en fin de liste chainée
 			if(AC->next == NULL){
 				//on décale le pointeur AC pour laisser de la place à l'allocation
-				char* newAC = (char*)AC+sizeof(ub)+size+1; 
+				char* newAC = (char*)AC+sizeof(ub)+S+1; 
 				
 				//création de FB
 				fb* newFB = (fb*)newAC;
-				newFB->taille = (AC->taille)-sizeof(ub)-size; 
+				newFB->taille = (AC->taille)-sizeof(ub)-S; 
 				newFB->next=NULL;
 				printf("Nouveau FB : %p (de taille %zu)\n", newFB, newFB->taille);
 				
@@ -91,18 +151,16 @@ fb* mem_fit_first(fb* T, size_t size){
 					AP->next = newFB;
 				}
 				
-				
-				
 			}
 			//CAS 2 : La zone libre est en milieu de chaine
 			else{
 				//on vérifie dans la zone libre qu'il y a assez de place pour créer un nouveau FB
-				if((AC->taille) > size+sizeof(ub)+sizeof(fb)){
+				if((AC->taille) > S+sizeof(ub)+sizeof(fb)){
 						printf("[Construction de FB en milieu de chaine !] \n");
-						char* newAC = (char*)AC+sizeof(ub)+size+1; 
+						char* newAC = (char*)AC+sizeof(ub)+S+1; 
 						
 						fb* newFB = (fb*)newAC;
-						newFB->taille = (AC->taille)-sizeof(ub)-size; 
+						newFB->taille = (AC->taille)-sizeof(ub)-S; 
 						newFB->next=AC->next;
 						printf("Nouveau FB : %p (de taille %zu)\n", newFB, newFB->taille);
 						
@@ -134,28 +192,9 @@ fb* mem_fit_first(fb* T, size_t size){
 				
 			}
 		}
-	return AC;
-	
-}
-//-----------------------------------------
-fb* mem_fit(mem_fit_function_t* f){
-	
-	fb * T = *((fb**)M.mem);
-	fb* AC = f(T, size_to_alloc);
-	return AC;
-	
-}
-//-----------------------------------------
-void* mem_alloc(size_t S) {
-	
-	ub * newU; //La future zone à allouer
-	
-	//ETAPE 1 ET 2 : Chercher une zone libre et remanipuler la liste chainée.
-	size_to_alloc = S;
-	newU = (ub*)mem_fit(&mem_fit_first); //retourne l'adresse où écrire newU
-	printf("Création de UB : %p\n", newU);
 	
 	//ETAPE 3 : On crée UB
+	printf("Création de UB : %p\n", newU);
 	newU -> taille = S;
 	return ((void*)newU) + sizeof(ub); //On retourne le DEBUT de la zone allouée, UB exclue ! Il ne faut pas laisser l'occasion à l'utilisateur d'écraser UB...
 	
@@ -233,11 +272,25 @@ void mem_free(void* m){
 //-----------------------------------------
 size_t mem_get_size(void *m){
 	
-	return (size_t)NULL;
+	ub* U;
+	U = (ub*)(m-sizeof(ub));
+	
+	return U->taille;
 }
 //-----------------------------------------
+//Ici on va parcourir les zones allouées et libres dans l'ordre
 void mem_show(void (*print)(void *, size_t, int free)){
 
+	/*fb* AC = ((fb *)M.mem)+1; //première zone (libre ou occupée) de la mémoire.
+	fb* derniere_adr_mem = (fb*)(M.mem + M.taille);
+	
+	size_t size;*/
+	
+	/*while(AC < derniere_adr_mem){
+		size = AC->taille;
+		
+	}*/
+		
 }
 
 
