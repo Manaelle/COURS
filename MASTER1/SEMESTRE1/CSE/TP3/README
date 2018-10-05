@@ -1,0 +1,3 @@
+Pour réaliser un test rapide, taper
+gcc -o exo3 exo3.c -lpthread
+./exo3 nb_thread value_to_find < tab.txt
