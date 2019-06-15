@@ -1,0 +1,1443 @@
+# -*- mode: org -*-
+# -*- coding: utf-8 -*-
+#+STARTUP: overview indent inlineimages logdrawer
+#+TITLE:       Tracage avec OpenMP
+#+AUTHOR:      Manal BENAISSA
+#+LANGUAGE:    fr
+#+TAGS: GENERAL(G) openMP(o) org-mode(O) latex(T) git(G) reunion(r)
+#+EXPORT_SELECT_TAGS: Blog
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+COLUMNS: %25ITEM %TODO %3PRIORITY %TAGS
+#+SEQ_TODO: TODO(t!) STARTED(s!) WAITING(w@) APPT(a!) | DONE(d!) CANCELLED(c!) DEFERRED(f!)
+
+* Tasks
+** Lecture de documents
+*** DONE Lire le premier raport de stage (celle d'Edouard) : Lire seulement les grandes lignes
+   - State "DONE"       from "DONE"       [2019-02-11 lun. 13:30]
+*** DONE Lire la partie "tasks" du manuel OPENMP
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-03-25 lun. 16:24]
+:END:
+** Correction de l'Omp Analyser
+*** DONE Corriger l'Omp Analyser pour qu'il marche
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-04-01 lun. 17:41]
+:END:
+*** DONE Gérer les dépendances
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-04-11 jeu. 16:18]
+:END:
+*** DONE Ajouter l'ID de la tâche courant/parent 
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-05-20 lun. 17:02]
+:END:
+** Visualisation des traces
+*** DONE Corriger le Paje Converter
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-05-22 mer. 09:46]
+:END:
+** Rédaction du rapport
+*** DONE Rédiger l'introduction
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-05-23 jeu. 12:04]
+:END:
+*** DONE Rédiger la partie "Parallélisme"
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-05-28 mar. 17:28]
+:END:
+**** DONE Introduction
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-05-24 ven. 18:03]
+:END:
+**** DONE Efficacité du parallélisme
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-05-27 lun. 17:41]
+:END:
+**** DONE Mémoire partagée
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-05-28 mar. 17:28]
+:END:
+**** DONE Système de tâches 
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-05-28 mar. 17:28]
+:END:
+*** DONE Rédiger la partie "Etat de l'Art" 
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-06-13 jeu. 12:02]
+:END:
+**** TODO OpenMP
+**** TODO OMPT
+*** DONE Rédiger la problématique
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-06-13 jeu. 12:03]
+:END:
+*** DONE Rédiger la partie "Trace d'Exécution avec OMPT"
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-06-13 jeu. 12:03]
+:END:
+*** DONE Rédiger la partie "Visualisation des traces"
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-06-13 jeu. 12:03]
+:END:
+*** DONE Rédiger la conclusion
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-06-13 jeu. 12:03]
+:END:
+* 2019
+** 2019-01 janvier [TEMPS PARTIEL]
+*** 2019-01-21 lundi
+**** Administration
+Pas de convention de stage pour instant.
+
+Disponibilité : Lundi et jeudi après-midi.
+
+Sujet du stage : Au sein de la communauté HPC, les applications
+parallèles utilisent de plus en plus de ressources (processeurs,
+accélérateurs, etc.) et l'analyse de leur comportement et de leur
+performance est de plus en plus compliqué : même si on peut obtenir
+des traces détaillées de l'application, savoir si les décisions prises
+(par l'application ou par le runtime) ont été pertinente est difficile
+à analyser.
+
+L'équipe Polaris travaille sur ces problèmes d'analyse de trace de
+programme parallèle. Un framework léger en R et scripts a été
+développé et a permis d'améliorer un moteur de tâches (StarPU) en
+mettant en évidence des problèmes d'ordonnancement.
+
+Par ailleurs, OpenMP est un environnement de programmation parallèle
+de plus en plus utilisé dans le domaine du HPC, en particulier depuis
+sa version 4 permettant de programmer par tâches.
+
+L'objectif de ce stage serait d'adapter ce framework pour des
+applications OpenMP utilisant des tâches. Cela nécessitera de
+comprendre le modèle de tâches d'OpenMP, d'instrumenter un runtime
+OpenMP pour obtenir les informations nécessaires, et d'adapter le
+framework pour présenter ces informations.
+Une application utilisant des tâches OpenMP pour calculer une
+simulation de physique pourra servir de cas test dans ce stage.
+
+Ce travail poursuivra celui de l'an dernier qui avait commencé à
+étudier cette problématique. Il se fera aussi en liaison avec des
+équipes françaises (Bordeaux) et Brésiliennes (Porto Allegre) qui
+travaillent avec nous sur ce sujet.
+
+**** Installations de base : Org-mode et documents
+Première phase : Redompter Org-mode (mais ce fut rapide)
+
+Deuxème phase : Chercher de la doc' en rapport avec OpenMP,
+principalement sur le ???, puis plus tard sur le Tracage.
+
+**** OpenMP v5 
+Ressources lues :
+[[https://en.wikipedia.org/wiki/OpenMP][Wikipédia (en)]]
+[[https://connect.ed-diamond.com/GNU-Linux-Magazine/GLMF-122/Decouverte-de-la-programmation-parallele-avec-OpenMP][Tutoriel pas à pas]]
+[[https://haydn2005.u-bourgogne.fr/dsi-ccub/IMG/pdf/openMP_Fortran_C.pdf][Manuel (fr) de OpenMP v4]]
+OpenMP est une librairie C/C++ (omp.h) permettant la gestion de threads.  
+Il suffit d'ajouter la dite libairie et de compiler comme suit :
+
+#+begin_src 
+gcc -Wall -fopenmp -o Tutorial1 Tutorial1.c
+#+end_src
+
+OpenMP semble idéal pour les algorithmes réguliers (calculs de
+matrices, d'objets dont on peut répartir les tâches assez facilement >
+permet le parallelisme de données) mais moins adapté au parallelisme
+de tâches (chaque thread devant coopérer, ayant leur propre
+fonctionnement et leur propre lot de données)
+  
+*** 2019-01-24 jeudi
+**** Les outils externes
+Il existe des outils de tracages disponibles sur internet :
+- Paraver
+- KOJAK
+- CATCH
+- TAU
+- VAMPIR
+- EZTrace
+**** Les outils associés à OpenMP
+OpenMP a (visiblement depuis sa v5) deux API permettant de
+tracer/debbugger une appli OpenMP : OMPT et OMPD
+*** 2019-01-28 lundi
+**** Lecture du rapport de stage précédent
+***** Questions :
+- Qu'est ce que "l'adaptativité" d'une méthode d'intégration ? (p8)
+- Il est souvent mentionné que OpenMP peut gérer les tâches depuis la
+  V3. Qu'en était-il de la V2 ?
+- Sur quel système travaillons-nous ? Plusieurs processeurs
+  multi-coeurs ? Plusieurs processeurs mono-coeurs ?
+- Je ne comprend pas bien la différence entre décomposition "de
+  domaines et "récursive", et pourquoi c'est "de domaine" qui est
+  préféré. (p12) D'autant plus que visiblement, il  a bien une étape
+  de fusion à la fin de l'algorithme (p13)
+*** 2019-01-31 jeudi 
+**** Continuation de lecture
+***** Questions
+- Je ne comprend pas bien la différence entre pragma omp parallel,
+  single et task (surtout task qui lance une tâche... n'est ce pas le
+  cas pour single aussi ?)
+
+***** Notions vues
+- Notion de tâches
+- Scalabilité des tâches + Overhead (surcout lié à la division du
+  problème en sous-problèmes + communication entre threads)
+
+** 2019-02 février
+*** 2019-02-04 lundi
+**** absente (malade)
+*** 2019-02-07 jeudi
+**** Récap avec Vincent
+
+(cf chapitre 18 et 22 d'openMP : Work sharing & Tasks) L'idée est
+d'observer (tracer) l'ordonnancement des tâches aux différents threads
+en service. Un programme est d'abord divisé en plusieurs tâches (omp
+task) par un thread :
+
+#+begin_src 
+#pragma omp parallel
+  #pragma omp single
+  {
+  ...
+  #pragma omp task
+  { ... }
+
+  #pragma omp task
+  { ... }
+
+  ...
+  }
+
+#+end_src
+
+Il va générer ainsi plusieurs tâches, qui seront ajoutés à une file
+(taskpool).
+Les autres threads viendront piocher dans cette file les tâches à
+effectuer. Mais il se peut aussi que l'exécution d'une tâche dépende
+d'une autre, qu'une synchro soit même nécessaire... Ce qui va avoir un
+impact sur l'ordonnancement. Toutes les stratégies d'ordonnancement ne
+se valent pas, (et c'est là qu'une étude de trace peut aider). Par
+exemple :
+- Les tâches peuvent être réparties dès le départ aux threads... Tant
+  pis si un thread finit trop vite et ne fait rien, ou si un autre
+  thread est surchargé de boulot.
+- Il peut y avoir des "vols de tâches" : lorsque un thread na plus
+  rien à faire, il va piquer du boulot à ses voisins.
+- ...
+
+Pour tracer, nous utiliserons OMPT. Il va placer des points de
+"contôle" à des endroits judicieux (ou pas... Il se peut que les
+points choisis n'offrent pas assez d'info de tracage, négocier à ce
+moment là pour avoir + d'infos.)
+
+*** 2019-02-11 lundi
+**** Préparation de ma présentation de stage pour la Magistère
+***** TODO Présentation Magistère
+      SCHEDULED: <2019-03-07 jeu.>
+J'ai une présentation de mon sujet à préparer. L'idée est d'expliquer
+grossièrement ce qu'est le parallélisme et OPENMP, et en quoi le
+traçage est nécessaire. La présentation dure une dizaine de minutes,
+devant les autres Magisteriens, puis 5min seront consacrés à des questions.
+
+****** Parallélisme & OpenMP  
+- Expliquer ce qu'est le parallélisme (brièvement)
+- Expliquer le système de tâches
+- Montrer OpenMP + comment il gère les tâches
+
+****** Traçage
+- Présenter OMPT
+- Exliquer mon sujet de stage :Traçage
+*** 2019-02-14 jeudi
+**** Passage d'Arnaud LEGRAND pour org-mode
+Quelques correctifs devaient être fait : En plus j'étais sur une
+ancienne version...
+
+Voici le git du org-mode A JOUR :
+[[https://gitlab.inria.fr/learninglab/mooc-rr/mooc-rr-ressources/blob/master/module2/ressources/emacs_orgmode.org#a-simple-reproducible-research-emacs-configuration-][Git du Org-mode]]
+**** Continuation de la présentation
+Je vais tenter de le faire en Latex, je nai jamais eu vraiment
+l'occasion de l'utliser.
+**** Questions sur le journal du stage précédent
+- Pas bien compris la compilation sur seminole
+*** 2019-02-18 lundi  
+**** Panne Internet
+**** Questions sur OPENMP de façon général
+***** La différence entre omp barrier et omp taskwait ?
+omp barrier s'applique aux threads ! A un point de synchro donné (par
+omp barrier) tous les threads encore en activité sont attendus avant de
+passer à la suite.
+omp taskwait s'applique aux tâches ! Même principe, mais un thread
+peut continuer à prendre des tâches malgré taskwait, jusqu'à que
+toutes les tâches attendues soient terminés.
+***** La différence entre omp master et omp single en matière de perf' ?
+Aucune en ce qui concerne les tâches : On péfèrera single, qui est
+plus flexible.
+
+*** 2019-02-21 jeudi
+**** Absente (Malade)
+** 2019-03 mars
+*** 2019-03-04 lundi
+**** Installation de clang v8
+**** Tests d'ordonnancement avec Task.c
+5 tâches ont été crée, et elles sont réparties à travers 3
+threads. L'idée était de mieux comprendre l'utilisation des tâches,
+puis d'essayer de comprendre (sans traçage) l'ordonancement.
+
+Résultat obtenu :
+TACHE 1, THREAD 1 
+TACHE 2, THREAD 2  
+TACHE 5, THREAD 2 
+TACHE 3, THREAD 0 
+TACHE 4, THREAD 1
+
+Cependant, les tâches sont trop rapides à terminer, il n'y a pas assez
+de tâches pour bien voir non plus. Je pense exploiter les fichiers
+tests du stage précédent, et éventuellement revenir vers task.c si
+j'ai besoin d'un exemple simple.
+**** Les directives qui seront souvent utilisées
+***** pragma omp parallel
+Demande au compilateur de paralléliser explicitement un bloc de code
+donné
+***** pragma omp single
+Le bloc de code donné sera exécuté par UN SEUL thread (pas forcément
+le master)
+***** pragma omp task
+Permet de définir une tâche
+****** Construction de task 
+******* depend(in/out/inout : <variables>)
+#+begin_src 
+#pragma omp task depend(in:a,b) depend(out:c)
+#+end_src
+
+Cette tâche attend que les tâches produisant a et b se terminent
+(out:a,b) et produit c. Permet de définir des dépendances entre tâches
+(et personaliser l'ordonancement)
+******* firstprivate(<variables>)
+#+begin_src 
+#pragma omp task firstprivate(a)
+#+end_src
+
+Cette tache utilisera une copie e la variable a. Ainsi :
+#+begin_src 
+int a = 0;
+
+#pragma omp parallel
+{	
+	#pragma omp single
+	{
+    #pragma omp task firstprivate(a)
+    {
+    printf("TACHE 1");
+    a++;
+    }
+
+    #pragma omp task firstprivate(a)
+    {
+    printf("TACHE 2");
+    a++;
+    }
+}}
+#+end_src
+
+Les 2 tâches auront a = 1. A la fin de l'exécution de ces 2 tâches,
+a=0 : Les copies ne sont pas sauvegardées.
+
+***** pragma omp taskwait
+permet d'attendre la fin d'exécution de toutes les tâches définies
+AVANT taskwait.
+*** 2019-03-07 jeudi
+**** Première lecture approfondie d'OMPT
+
+A REVOIR : Non comprise
+
+*** 2019-03-11 lundi
+*** 2019-03-14 jeudi
+**** Compilation avec Clang
+
+#+begin_src 
+clang-8 monprogramme.c -fopenmp
+#+end_src
+
+Un fichier a.out est généré. Il suffit de l'exécuter comme suit :
+
+#+begin_src 
+./a.out <EVENTUELS_PARAMETRES>
+#+end_src
+**** Revue avec Vincent
+les programmes compilés avec clang-8 le sont directement avec
+ompt. L'idée que le callback.h appelle avant les fonctions de ompt
+(lookup), en stockant directement les fonctions dans des pointeurs et
+affiche (comme il le souhaite) les retours de callback.
+Il faudra néanmoins revoir la version actuelle de OMPT avec celle du
+code de Maxime. 
+*** 2019-03-18 lundi
+**** Correction de callback.h [EN COURS]
+Certaines fonctions/callbacks n'ont pas été implémenté (cf
+callback.h/c)
+D'autres fonctions/callbacks ont changé de nom/type/paramètre.
+Je m'aide du manuel OpenMP v5 pour corriger : [[https://www.openmp.org/wp-content/uploads/OpenMP-API-Specification-5.0.pdf][Manuel OpenMP v5 (dernière version)]]
+
+Pour l'instant, seul le monitoring avec les callbacks (=tracer sur sa
+propre machine) est implémentée. Il existe des outils pour tracer une
+machine cible (que nous ne verrons pas pour l'instant)
+*** 2019-03-21 jeudi
+**** Questions
+- Nous avons les callbacks =ompt_callback_mutex_acquired= et
+  =ompt_callback_mutex_released= qui ,ne sont pas décrit : Il existe
+  seulement une specification pour =ompt_callback_mutex_t=. Pourquoi ?
+  (p478)
+- =ompt_callback_buffer_request= et =ompt_callback_buffer_complete= non
+  donnés dans la liste des callbacks. (p486)
+- Revoir =ompt_callback_reduction=.
+**** Activation d'OMPT
+On souhaite à présent tracer un programme lambda (utilisant
+OpenMP). Il faut associer callback.c/h au dit programme. Voici la démarche à suivre lorsque =callback= a été
+implémenté :
+***** Rappel
+- Une bibliothèque statique est une collection de fichiers objets
+  (.o).
+- Une bibliothèque dynamique est une collection de fonctions compilées
+  et stockées dans un exécutable, dans le but d'être attaché par
+  d'autres prorammes durant l'exécution.
+***** A savoir
+Il ne faut PAS ajouter #include "callback.h" dans le proramme à tracer
+! 
+***** Via une bibliothèque dynamique dans la variable d'environnement =OMP_TOOL_LIBRARIES=
+****** Créer la librairie dynamique
+
+#+begin_src 
+ clang-8 -shared -fpic callback.c -o libcallback.so
+#+end_src
+
+Les librairies dynamiques se terminent par .so pour Linux, .dll pour
+Windows, .dylib pour OSX. (Comme je suis sur Linux, se sera .so pour
+moi)
+L'option -fpic convertie les adresses absolues en adresses relatives :
+Les diférents processus pourront charger la librairie à différentes
+zones mémoire.
+
+****** Passer la librairie dans la variable d'environement =OMP_TOOL_LIBRAIRIES= 
+
+Attention, il est TRES important que la librairie se trouve dans
+=/usr/local/lib/= !
+
+#+begin_src
+export OMP_TOOL_LIBRARIES="/usr/local/lib/libcallback.so"
+#+end_src
+
+Pour voir les variables d'environnement :
+
+#+begin_src 
+printenv OMP_TOOL_LIBRARIES
+#+end_src
+
+[Cette méthode marche !]
+***** Directement dans le programme (statique) 
+#+begin_src 
+clang-8 -include callback.h -fopenmp Time.c -o Time
+#+end_src
+
+[Cette méthode ne marche pas...]
+***** Problème
+Aucune des deux techniques ne fonctionne. Ni le journal de l'an
+dernier, ni le manuel ne m'en dit plus...
+
+[EDIT : La méthode 1 marche !]
+*** 2019-03-25 lundi
+**** DONE Dernières corrections du callback.h 
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-04-11 jeu. 16:06]
+:END:
+- Le .h est inutile. A supprimer. [EDIT : Je pense plutôt le
+garder, il m'aide à mieux y voir] 
+- Enlever les statics.
+- Retoucher le timer (timer fourni inutile)
+- Revoir les retours donnés à chaque callback (certains retours sont inutiles à fournir)
+**** TODO Permettre une meilleure visualisation
+Soit avec PAJE, soit avec R
+**** DONE Essayer le tracage avec le programme =mergesort.c=
+:LOGBOOK:
+- State "DONE"       from "STARTED"    [2019-04-11 jeu. 16:19]
+- State "STARTED"    from "TODO"       [2019-04-11 jeu. 16:06]
+:END:
+L'idée étant de voir le traçage sur un programme + complexe
+**** TODO Essayer le traçage avec le programme =cas-test= 
+Programme utilisant la bibliothèque GSL (cas des intégrations
+imbriquées, inspiré de calculs effectué en physique)
+**** Observation des traces
+L'activation d'OMPT fonctionne, et donne donc un fichier
+=trace_ompt.csv=. Il faut à présent voir si les retours donnés sont
+cohérents par rapport au programme tracé.
+**** Retour de Vincent
+***** Autres manières de compiler
+Avec une bibliothèque dynamique indiquée par un chemin complet
+#+begin_src 
+clang-8 -shared -fpic callback.c -o libcallback.so
+export OMP_TOOL_LIBRARIES="$(pwd)/libcallback.so"
+clang-8 -fopenmp -o Time Time.c
+env -i OMP_TOOL_LIBRARIES="$OMP_TOOL_LIBRARIES" ./Time 2
+#+end_src
+Avec le code directement dans l'exécutable
+#+begin_src 
+clang-8 -fopenmp -o Time-alone callback.c Time.c
+env -i ./Time-alone 2
+#+end_src
+Avec une bibliothèque dynamique recherchée dans les chemins de bibliothèque
+#+begin_src 
+clang-8 -shared -fpic callback.c -o libcallback.so
+export OMP_TOOL_LIBRARIES="libcallback.so"
+export LD_LIBRARY_PATH="$(pwd)"
+clang-8 -fopenmp -o Time Time.c
+env -i OMP_TOOL_LIBRARIES="$OMP_TOOL_LIBRARIES" LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ./Time 2
+#+end_src
+
+***** Visualisation de traces
+- format PAJE
+- outils :
+  - l'ancêtre Paje.app (gnustep/Objective C)
+  - paje-ng (à tester en priorité)
+  - Vite (réécriture avec OpenGL, ne supporte pas tout le format Paje)
+***** Compilation gsl-par
+#+begin_src 
+git clone ...
+git checkout fin-stage
+cd ...
+./autogen.sh
+mkdir build && cd build
+../configure CC=clang-8 CFLAGS=-fopenmp --prefix="$(pwd)/_inst" --enable-openmp --enable-maintainer-mode
+make -j
+make install
+#+end_src
+#+begin_src
+stage-qgp/cas-test$ make  GSL_BASEDIR=../../gsl-par/build/_inst
+#+end_src
+*** 2019-03-28 jeudi 
+**** Correction du callback.h
+***** Timer étrange
+Le timer retournait toujours le même timestamp. Nous pouvions voir la
+chronologie qu'à partir de l'ordre dans laquel les événements ont été
+écrit dans le fichier (le timestamp était alors inutile). De plus, la valeur
+retournée donnait le nombre de secondes depuis janvier 1970... J'ai
+corrigé ça.
+***** Questions
+- Les sections parallèles (même emboitées) sont toujours crées/gérés
+  par le MEME thread, mais parfois par des processeurs différents,
+  comment ça se fait ?
+***** Récap' des events et des infos retournées.
+Certains paramètres sont retournés mais sont ils vraiment utiles pour
+le tracage ? Manque-il des infos ?
+****** =EVENT_OMPT_START=            (101)
+Aucun paramètre
+
+****** =EVENT_OMPT_END=              (102)
+Aucun paramètre
+
+****** =EVENT_THREAD_BEGIN=          (103)
+Associé à =ompt_callback_thread_begin()= : Lorsqu'un thread est crée. On
+veut alors connaitre :
+- ID du processeur
+- ID du thread crée
+- Le type du thread (initial = 1, worker = 2, other = 3, unknown = 4)
+
+- Eventuellement sa structure associée ? (Pas pertinent à mon sens)
+
+Il y a des redondances dans l'ancienne version :
+=ompt_get_thread_data()->value= (va donner l'ID du thread courant) et
+=thread_data->value= (ID du thread crée) indiqueront
+toujours les MEMES valeurs.
+
+****** =EVENT_THREAD_END=            (104)
+Associé à =ompt_callback_thread_end()= : Lorsqu'un thread se termine. On
+veut alors connaitre :
+- ID du processeur
+- ID du thread terminé
+
+****** =EVENT_TASK_CREATE=           (105)
+Associé à =ompt_callback_task_create()= : Lorsqu'une tâche est crée. On
+veut alors connaitre :
+- ID du processeur
+- ID du thread qui va créer la tâche
+- ID de la tâche associée à la création de la nouvelle tâche (>1000) :
+  vaut 0 si c'est une tâche initiale
+ ID de la nouvelle tâche
+- flags : type de la nouvelle tâche (initial, explicit ou target)
+- A il des dépendances ?
+
+****** =EVENT_TASK_END=              (106)
+Associé à =ompt_callback_task_schedule()= : Lorsqu'une tâche est terminée. On
+veut alors connaitre :
+- ID du processeur
+- ID du thread qui va créer la tâche
+- ID de la tâche associée à la création de la nouvelle tâche (>1000) :
+  vaut 0 si c'est une tâche initiale
+- ID de la nouvelle tâche
+- flags : type de la nouvelle tâche (initial, explicit ou target)
+- A il des dépendances ?
+****** =EVENT_IMPLICIT_TASK_CREATE=  (107)
+Associé à =ompt_callback_implicit_task()= : Lorsqu'une tâche implicite
+(ou initiale) est crée. On veut alors connaitre :
+- ID du processeur
+- ID du thread qui va exécuter la tâche
+- ID de la section parallèle/team (>100) où on se trouve 
+- ID de la tâche rencontrée (>1000)
+- flags (indique la nature de la tâche : initial ou implicit)
+- Nombre de threads ou de team (=actual_parallelism=) : vaut 1 pour les
+  tâches initiales qui ne sont pas dans des teams.
+- Index (ID du thread appelant) : vaut 1 pour les tâches initiales non
+  crées par des teams.
+
+
+A noter qu'une tâche implicite est crée à chaque section parallèle !
+
+****** =EVENT_IMPLICIT_TASK_END=     (108)
+Associé à =ompt_callback_implicit_task()= : Lorsqu'une tâche implicite
+(ou initiale) est crée. On veut alors connaitre :
+- ID du processeur
+- ID du thread qui va exécuter la tâche
+- ID de la section parallèle/team (>100) où on se trouve (vaudra NULL
+  ou 0 ici)
+- ID de la tâche rencontrée (>1000)
+- Nombre de threads ou de team (=actual_parallelism=) : vaudra 0 ici.
+- Index (ID du thread appelant) 
+- flags (indique la nature de la tâche : initial ou implicit)
+
+ID de la section parallèle, le nombre de threads et le flag ne sont
+pas nécessaire ici, mais je les ai quand même laissé.
+
+****** =EVENT_TASK_SCHEDULE=         (109)
+Associé à =ompt_callback_task_schedule()= : Lorsqu'une tâche est "modifiée". On
+veut alors connaitre :
+- ID du processeur
+- ID du thread qui va créer la tâche
+- ID de la tâche 1 (tâche courante) (>1000)
+- ID de la tâche 2
+- status (cf =get_task_status()=)
+
+****** =EVENT_PARALLEL_BEGIN=        (110)
+Associé à =ompt_callback_parallel_begin()= : Lorsqu'une région parallèle
+(avec pragma omp parallel) ou une team commence. On
+veut alors connaitre :
+- ID du processeur
+- ID du thread qui va créer la région parallèle/team
+- ID de la section parallèle/team (>100)
+- ID de la tâche rencontrée (>1000)
+- flags (indique comment/par qui la section est crée)
+- Nombre de threads demandé dans cette section
+
+=encountering_task_frame->exit_frame.ptr= est le pointeur vers la tâche
+à effectuer, ce n'est pas pertinent de le mettre. Ce fier à ce qui est
+proposé dans les structures de trace, dans le manuel).
+
+****** =EVENT_PARALLEL_END=          (111)
+Associé à =ompt_callback_parallel_end()= : Lorsqu'une région parallèle
+(avec pragma omp parallel) ou une team commence. On veut alors connaitre :
+- ID du processeur
+- ID du thread qui va terminer la région parallèle/team
+- ID de la section parallèle/team qui termine (>100)
+
+****** =EVENT_SINGLE_OTHER_BEGIN=    (112)
+Associé à =ompt_callback_work()= : Lorqu'une directive "#pragma omp
+single" (= gestion de cette section par UN SEUL thread) est rencontré par un thread qui ne GERE pas cette section.
+veut alors connaitre :
+- ID du processeur
+- ID du thread 
+- ID de la section parallèle (>100)
+- ID de la tâche associée
+****** =EVENT_SINGLE_OTHER_END=      (113)
+Associé à =ompt_callback_work()= : Lorqu'une directive "#pragma omp
+single" (= gestion de cette section par UN SEUL thread) est rencontré
+par un thread qui ne GERE pas cette section, et que cette section se termine.
+veut alors connaitre :
+- ID du processeur
+- ID du thread 
+- ID de la section parallèle (>100)
+- ID de la tâche associée
+
+****** =EVENT_TASK_DEPENDENCES=      (114)
+Associé à =ompt_callback_dependences()= : Lorsqu'une tâche est crée
+AVEC des dépendances (avec =ordered/depend=). On
+veut alors connaitre :
+- ID du processeur
+- ID du thread qui va créer la tâche
+- ID de la nouvelle tâche (>1000)
+- nombre de dépendances
+- liste des dépendances
+
+****** =EVENT_TASK_DEPENDENCES_PAIR= (115)
+Associé à =ompt_callback_task_dependences()= : Lorsqu'une tâche est crée
+AVEC des dépendances ET que les tâches dont elle dépend sont encore en
+cours d'exécution. On rencontre notamment cette situation dans le cas
+des loops (la tâche i+1 dépend de la tâche i) On
+veut alors connaitre :
+- ID du processeur
+- ID du thread qui va créer la tâche
+- ID de la tâche source (celle qui fournit les variables out) (>1000)
+- ID de la tâche =sink= (celle doit attendre la tâche source) (>1000)
+
+****** =EVENT_SINGLE_EXECUTOR_BEGIN= (116)
+Associé à =ompt_callback_work()= : Lorqu'une directive "#pragma omp
+single" (= gestion de cette section par UN SEUL thread) est rencontré
+par le thread qui GERE cette section.
+veut alors connaitre :
+- ID du processeur
+- ID du thread 
+- ID de la section parallèle (>100)
+- ID de la tâche associée
+****** =EVENT_SINGLE_EXECUTOR_END=   (117)
+Associé à =ompt_callback_work()= : Lorqu'une directive "#pragma omp
+single" (= gestion de cette section par UN SEUL thread) est rencontré
+par le thread qui GERE cette section, et que cette section se termine.
+veut alors connaitre :
+- ID du processeur
+- ID du thread 
+- ID de la section parallèle (>100)
+- ID de la tâche associée
+****** =EVENT_MASTER_BEGIN=          (118)
+Associé à =ompt_callback_master()= : Lorqu'une section géré par le
+thread master commence (lorsque "#pragma omp master" est rencontrée). On
+veut alors connaitre :
+- ID du processeur
+- ID du thread 
+- ID de la section parallèle (>100)
+- ID de la tâche associée
+
+** 2019-04 avril
+*** 2019-04-01 lundi
+**** ><(((°>
+**** Questions
+- Les sections parallèles (callback : =ompt_callback_parallel_begin=)
+retournent un flag qui n'indique pas si la section est LEAGUE ou
+TEAM... Normal ?
+- Revoir complètement comment les dépendances sont stockées et (surtout
+  comment y accéder...)
+*** 2019-04-04 jeudi
+**** Questions
+- Lorsqu'un event =OMPT_CALLBACK_DEPENDENCES= survient, il est
+  normalement possible d'accéder aux dites dépendances (pour une tâche
+  donnée) via le paramètre =const ompt_dependence_t *deps=. La structure
+  =ompt_dependence_t= est construite ainsi : 
+
+#+begin_src 
+typedef struct ompt_dependence_t {
+ompt_data_t variable;
+ompt_dependence_type_t dependence_type;
+} ompt_dependence_t;
+#+end_src
+
+=ompt_dependence_type_t= fournit le type de dépendance (in, out, inout)
+détaillée dans la fonction =char* get_dependence_type(int d)= de
+callback.c. (Jusqu'à là, tout va bien)
+En revanche, =ompt_data_t variable= est une autre structure comme suit :
+
+#+begin_src 
+typedef union ompt_data_t {
+uint64_t value;
+void* ptr;
+} ompt_data_t;
+#+end_src
+
+...où variable est un pointeur vers la zone de stockage de la
+dépendance. (cf p442 du manuel)
+ Donc variable->value doit donner le variable de dépendance de la
+tâche...Ce qui ne semble pas être le cas.
+*** 2019-04-08 lundi
+**** Réponses !
+***** Au sujet des dépendances
+Le nom de la variable n'est pas stockée ! En revanche, on peut trouver
+sa valeur dans *(variable->value) ou dans *(variable->ptr) (value et
+ptr coniennent la même chose, on a juste value qui est en =uint64_t=
+et ptr en =void*=.)
+**** Questions
+***** Encore les dépendances
+Lorsqu'il y a plusieurs dépendances du même type, variable est sensée
+pointer ver un vecteur d'éléments. Je n'arrive pas à accéder aux
+autres éléments...
+Plusieurs cas possibles :
+- =ompt_dependence_t* deps= pointe vers un vecteur d'éléments de type
+  =ompt_dependence_t=. (On peut effectivement accéder aux divers
+  variables, mais le type bug.)
+- =ompt_dependence_t* deps= pointe vers la structure de type
+  =ompt_dependence_t vardeps= , et vardeps.ptr pointe vers un vecteurs
+  de variables partageant le même type (in, out, inout). Si on
+  retrouve les directives "depend(in:x) depend(out:y)", ceci est
+  interprété comme un inout. (C'est douteux mais c'est ce qu'il
+  m'envoie pour ce type de directive...)
+
+[RESOLU ! C'était bien la 1ère option]
+**** Travail en cours
+Visiblement, =ompt_callback_work()= est plus vaste qu'il n'y parait : Il
+est appelé  chaque "gestion" de threads face à une section
+donnée. Il va particulièrement nous intéresser dans le cas de =#pragma
+omp single=, mais pas que. (cf taskloop surtout, à voir si les autres
+sont pertinents à ajouter)
+*** 2019-04-11 jeudi
+**** Correction de callback terminé
+Les fonctions (à priori) nécessaires ont été vérifiées/testées et
+ajustées. J'ai ajouté également l'event associé à "pragma omp master"
+(très souvent utilisé pour les tâches).   
+**** Application de R
+[[https://informatique-mia.inra.fr/r4ciam/node/128][Bon tuto en R]]
+[[https://openclassrooms.com/fr/courses/1393696-effectuez-vos-etudes-statistiques-avec-r/1393912-premiers-pas-avec-r][Openclassroom]]
+[[https://colinfay.me/intro-to-r/appendix-b-invoking-r.html][Autretuto]]
+
+**** Installation de PAJE-NG
+[[https://github.com/schnorr/pajeng][Git de paje-ng]]
+[[http://paje.sourceforge.net/download/publication/lang-paje.pdf][Comment avoir une trace en format PAJE]]
+**** Adaptation de csv2paje.R
+Quelques paramètres ont été modifiés/ajoutés durant le traçage. Il
+faut donc réadapter le fichier =csv_to_paje_converter.R= pour prendre en
+compte ces changements.
+*** 2019-04-15 lundi
+**** Comment lire le format PAJE
+Le but du format PAJE est essentiellement d'aboutir vers un graphe de
+ce type :
+[[file:exemple_diagramme.png]]
+
+L'idée étant de créer des containers (Program ou Thread) qui évoluent
+dans le temps (cf event).
+***** PajeDefineContainerType 1
+Définit le type de container : ici un programme ou un thread. 
+Champs associés : NumEvent(1) + Alias du type + Alias du type de container père +
+nom du type de container
+#+begin_src 
+1	P	0	Program
+1	Th	P	Thread
+#+end_src
+Soit :
+- le container est le programme, sans container associé (d'où le
+  zéro)
+le container est un thread, contenu dans le programme (d'où P)
+***** PajeCreateContainer 7
+On crée ici le container de type P ou Th.
+Champs associés : NumEvent(7) + date + Alias du container  + Type du
+container + Container père + nom du container
+#+begin_src 
+7	0	MyP	P	0	"Program"'
+#+end_src
+Ici, MyP est un container de type P (Program), débutant au
+temps 0.0sec, sans container père, et portant le nom "Program".
+
+#+begin_src 
+7	0.000007152557	Th1	Th	MyP	"Thread 1"
+#+end_src
+Th1 est un container de type Th (Thread), débutant au temps
+0.000007152557sec, dont le containter père est MyP, et portant le nom
+"Thread 1" 
+**** Retour V.D
+ - Paje peut convertir un fichier page en csv (en y ajoutant un format
+   plus compact) avec =pj_dump=
+- =Vite= permet de visualiser des fichiers au format paje (Faire
+  attention tout de même : ce n'est pas toujours bien interprété)
+- L'idée : Convertir un .csv en paje puis de nouveau en csv pour
+  traiter avec R.
+** 2019-05 mai [TEMPS PLEINS]
+*** 2019-05-13 lundi
+**** Correction du Paje Converter
+- Certaines informations ont été oublié lors de la conversion CSV -> Paje. (Type
+  de threads par exemple). Il faut voir comment insérer ça.
+- Il faut installer la librairie =readr= une première fois pour pouvoir
+  l'utiliser :
+#+begin_src 
+install.packages("readr", repos=c("http://rstudio.org/_packages", "http://cran.rstudio.com"))
+#+end_src
+Par contre il n'est plus utile de le réinstaller à chaque fois, il me
+foudrait un script qui s'assure de ces installations, et qui enchaine
+directement avec la conversion csv/paje ensuite.
+*** 2019-05-14 mardi
+**** Commande pour la conversion
+Il existe un fichier =csv_to_paje_converter.R= permettant la conversion
+d'un tracé (notre fichier =traces_ompt.csv=) en format paje. Ce format
+permettra ensuite d'avoir notre diagramme de Grantt. Pour effetuer la
+conversion :
+
+#+begin_src 
+sudo R --vanilla < csv_to_paje_converter.R
+#+end_src
+
+Ce fichier .paje peut être ouvert par un logiciel tel que =Vite= pour la
+visualisation.
+**** Problème lié à la conversion
+L'=omp_analyser= a été beaucoup changé, et il faut donc remettre à jour
+le =paje_converter=. Malgré mes modifications, l'affichage reste
+incorrect, je ne comprend pas pourquoi. Le problème se situe au moment
+des SWITCH (lorsqu'un event scheduling [code 109] est rencontré).
+Admettons que nous avons 2 threads T1 et T2 dans un code comme
+celui-ci : 
+#+begin_src 
+#pragma omp parallel
+{
+   #pragma omp single
+   {
+    #pragma omp task
+    {
+	duTafLambda();
+    }
+   }
+
+}	
+#+end_src
+- Au moment de la création de la section parallèle (=omp parallel=), T1
+  et T2 se verront assigné d'une tâche implicite, respectivement 1002
+  et 1004.
+- T2 est le thread choisi dans =omp single=. Il va donc effectuer la
+  tâche implicite 1004 consistant à créer les tâches et les mettre dans le
+  taskpool. Il va y mettre notre unique tâche : la tâche 1005.
+- T1 était lui aussi dans une tâche implicite (lors de la création
+  de la la section parallèle =omp parallel=) : la tâche 1002. Il va donc
+  SWITCHER vers la tâche 1005 (l'event schedule s'active à ce moment
+  là). La tâche 1002 est toujours présente mais mise en attente. 
+- T2 termine pendant ce temps la création de ses tâches. Si il y avait
+  d'autres tâches, il aurait fait comme T1 et il aurait switch de la
+  tâche 1004 à la tâche 100X. 
+
+Ce que nous voulons voir dans le diagramme de grantt, c'est ces
+switchs :
+- T1 fait la tâche 1002 puis 1005, avec l'event "schedule switch"
+  entre les deux
+- T2 fait la tâche 1004 où il crée les tâches (donc on doit voir les
+  event "create task" dans cette tâche) puis il switch vers la tâche
+  100X.
+
+***** Comment on illustre le switch avec paje
+Un thread a plusieurs états possibles :
+- Il exécute une tâche : Ta
+- Il exécute la tâche initiale : iniTa
+- Il ne fait rien : No
+- Le thread est détruit : Ds
+
+On exprime ce changement d'état comme suit (pour paje) :
+#+begin_src 
+10	[timestamp]	S	Th[num du thread qui change d'état]	[Nouvel état]
+#+end_src
+
+Un event peut avoir plusieurs valeurs possibles :
+- Création d'une nouvelle tâche : TC
+- Fin d'une tâche : TD
+- Création d'une nouvelle tâche implicite : impTC
+- Fin d'une tâche implicite : impTD
+
+On exprime ce changement de valeurs comme suit :
+#+begin_src 
+12	[timestamp]	TE	Th[num du thread concerné par l'event]	[valeur de l'event]	[ID de la tâche crée]	[processus ayant crée la tâche]
+#+end_src 
+
+***** Quel est donc le problème ?
+Quand une tâche est crée (en partant du principe qu'elle peut être
+interrompue et reprise par un AUTRE thread), il faut mémoriser :
+- Si cette tâche est en cours d'exécution ou interrompue
+- Quel thread exécute cette tâche 
+- si c'est une tâche implicite ou non
+- Un compteur de lien pour les tâches explicites
+
+Lors d'un event "switched" (code 109), nous avons comme information :
+- L'ID du thread qui va switcher
+- La tâche source (1002 pour T1 par exemple)
+- La tâche destination (1005 pour T1)
+
+L'ancien projet met 0 l'ID du thread qui va switcher quand la tâche
+n'est pas géré, or Th0 ne sera pas reconnu...
+J'ai l'impression qu'il nous manque une info dans le tracé : A quel
+moment un thread switch d'une tâche implicite à une tâche explicite
+lors de la création d'une section parallèle ? (cf ligne 7, 11 et 8 de
+=traces_ompt.csv=)
+
+*** 2019-05-15 mercredi
+***** Rédaction du rapport 
+****** Etat de l'art
+******* Parallélisme à mémoire partagée et système de tâches
+- Expliquer ce qu'est le parallélisme
+- Comment fonctionne le parallélisme en mémoire partagée
+- Expliquer le système de tâche
+******* OpenMP et le système de tâches
+- Expliquer OpenMP
+- Comment celui-ci gère les tâches
+******* OMPT pour le traçage
+- Expliquer OMPT, le système de callback
+- Expliquer les mises à jours faites
+****** Problématique
+- Mettre en évidence le problème d'ordonnancement et la nécessité
+  d'effectuer un traçage
+- Avons-nous toutes les informations nécessaires (lors de
+  l'utilisation d'OMPT)  pour voir les problèmes d'ordonnancement ?
+*** 2019-05-16 jeudi
+**** Retours Vincent
+***** Traçage des tâches
+On constate effectivement qu'on manque d'informations sur
+l'enchainement des tâches : sur =traces_ompt.csv= on constate que le
+thread 1 passe de la tâche 0 à 1001, puis de 1001 à 1002 et enfin de
+1002 à 1005 mais sans trop savoir à qel moment et comment. Il faut
+donc avoir plus d'infos (notamment grâce à =ompt_get_task_info_t()=) au
+niveau des créations de tâches implicites (donc à priori au moment des
+pragma parallel, et éventuellement pendant le pragma single/master)
+***** On ne gère pas le traçage des processus
+L'ordonnancement des processus/treads est géré par le noyau et
+nécessite d'autres outils comme =perf= (Linux). Nous ne gérons pas cet
+aspect là du traçage, on se concentre sur l'ordonnancement des tâches.
+***** Coté rapport 
+On garde le plan fait hier, l'idée est de réexpliquer mais avec mes
+mots. Il n'est pas nécessaire d'expliquer Paje, il ne sert qu'à mieux
+visualiser le traçé. On a donc 10 pages, dont une pour les références
+à la fin. Faut 5 pages MAX pour l'état de l'art/Problématique. 
+*** 2019-05-17 vendredi
+Nous pouvons obtenir plus d'infos au sujet des tâches grâce à
+=ompt_get_task_info()=, à qui il faut lui donner les paramères suivants :
+
+#+begin_src 
+ompt_get_task_info(
+      int ancestor_level, 
+      int *flags, 
+      ompt_data_t **task_data,
+      ompt_frame_t **task_frame,
+      ompt_data_t **parallel_data,
+      int *thread_num
+);
+#+end_src
+
+Ces paramètres sont souvent dispo à certains events (parallel-begin
+par exemple). l'=ancestor_level= est le "rang" de la tâche dans la pile
+de tâches : Si =0, alors on souhaite les infos de la tâche
+ACTIVE. Sinon, on souhaite les infos d'une tâche inactive dans la
+pile.
+
+#+begin_src 
+//---------TASK INFO------------
+	int num_thread = (int)requested_parallelism;
+	int ancestror_level = 1;
+
+	//Si les infos sont disponibles
+	int info_disponibility = ompt_get_task_info(ancestror_level, &flags, &encountering_task_data, &encountering_task_frame, &parallel_data, &num_thread);
+	if (info_disponibility==2){
+		printf("TACHE : %f;%d;%d;%lu;%lu;%lu;%s;%u\n",getTime(),EVENT_PARALLEL_BEGIN, ompt_get_proc_id(), ompt_get_thread_data()->value,parallel_data->value, encountering_task_data->value, get_parallel_flag((uint32_t)flags, res), requested_parallelism);
+	}
+	else{
+		printf("TACHE : Infos non disponibles (code %d) !\n", info_disponibility);
+	}
+	//-----------------------------
+#+end_src
+
+Je ne vois pas bien comment utiliser cette fonction, surtout si les
+infos ne sont pas directement disponibles. 
+*** 2019-05-20 lundi
+**** =get_task_info()= marche on dirait.
+
+Visiblement, cette fonction marche quand je l'appelle au moment de
+l'event =PARALLEL_BEGIN= (code 110) et pour =ancestor_level= = 0.
+
+Résultat obtenu :
+#+begin_src 
+TACHE : 0.000771;1;1;0;1001;INVOKER PROGRAM;0
+
+Timestamps : 0.000771	
+ID current processus :	1
+ID current thread :	1
+ID current parallel section :	0
+ID current task :	1001
+Flag type :	INVOKER PROGRAM
+Nb threads available :	0
+#+end_src
+
+Voici le code qui a permis ça :
+
+#+begin_src 
+void get_info_task(){
+	
+	int ancestor_level = 0;
+
+	int flags;
+	ompt_data_t *task_data;
+	ompt_frame_t *task_frame;
+	ompt_data_t *parallel_data;
+	int thread_num;
+
+	char res[50];
+
+	//Si les infos sont disponibles
+	int info_disponibility = ompt_get_task_info(ancestor_level, &flags, &task_data, &task_frame, &parallel_data, &thread_num);
+	
+	if (info_disponibility==2){
+		printf("TACHE : %f;%d;%lu;%lu;%lu;%s;%u\n",getTime(), ompt_get_proc_id(), ompt_get_thread_data()->value,parallel_data->value, task_data->value, get_parallel_flag((uint32_t)flags, res), thread_num);
+	}
+	else{
+		printf("TACHE : Infos non disponibles (code %d) !\n", info_disponibility);
+	}
+}
+#+end_src
+
+Pour =ancestor_level= = 1, ça ne marche pas (info non disponible). En
+faisant ça, j'espérais avoir les infos de la tâche initiale (ID = 0),
+qui a été visiblement mise en pause pour effectuer la tâche 1001,
+conformément au résultat du tracé :
+
+#+begin_src 
+Timestamps : 0.000785	
+Code event : 110 (PARALLEL_BEGIN)
+ID current processus :	1
+ID current thread :	1
+ID current parallel section :	101
+ID current task :	1001
+Flag type :	INVOKER RUNTIME
+Nb threads available :	4				
+#+end_src 
+**** Ce que j'ai trouvé
+***** Création de tâche INITIALE
+Je m'attendais à ce que le parent soit bien défini et soit la
+tâche 0. Sinon, lorsque la tâche courante est initiale, elle crée la
+tâche 1001 et switch vers elle directement.
+
+A savoir :
+- param1 est la tâche crée.
+- 999 veut dire que la tâche est indéfinie.
+
+#+begin_src 
+timestamp	type	proc_id		current_thread_id	parent_task_id	current_task_id		param1	param2		param3
+0.000692	105	1		1			999		1001			1001	INITIAL		NOT DEPENDANT	
+#+end_src 
+***** Création de section parallèle
+Le thread reste sur la tâche 1001 (crée durant la tâche initiale),
+rien de choquant donc.
+
+A savoir :
+- param1 est l'ID de la section parallèle
+#+begin_src 
+timestamp	type	proc_id		current_thread_id	parent_task_id	current_task_id		param1	param2			param3
+0.000755	110	1		1			999		1001			101	INVOKER RUNTIME		4					
+#+end_src
+***** Création d'une tâche explicite
+Là aussi on reste cohérent : La tâche 1002 de parent 1001 va créer la
+tâche 1003. (Dans le tracé, 1002 fait de même pour les tâches 1004,1005,1006...1012)
+
+#+begin_src 
+timestamp	type	proc_id		current_thread_id	parent_task_id	current_task_id		param1	param2		param3
+0.000937	105	1		1			1001		1002			1003	EXPLICIT	DEPENDANT					
+
+#+end_src
+***** Les switchs de tâches
+Lorsqu'un thread veut switch de la tâche 1002 à la tâche 1012, il met
+bien la 1002 en pause (d'où le fait qu'elle devienne la tâche parent)
+et 1012 devient la nouvelle tâche.
+
+A savoir :
+- param1 est la tâche d'origine
+- param2 est la tache après l'event (après le switch ici) 
+
+#+begin_src 
+timestamp	type	proc_id		current_thread_id	parent_task_id	current_task_id		param1	param2		param3
+0.001044	109	1		1			1002		1012			1002	1012		SWITCHED					
+#+end_src
+***** Création de thread
+Quand un thread est à créer, on revient sur la tâche initiale (=0), ce qui
+veut dire qu'un switch implicite a eu lieu (ici entre 1001 et 0)
+#+begin_src 
+timestamp	type	proc_id		current_thread_id	parent_task_id	current_task_id		param1
+0.001092	103	1		2			1001		0			WORKER		
+#+end_src
+***** Création d'une tâche implicite
+Pour créer une tâche implicite, le thread revient à la tâche initiale
+(il fait donc un switch implicite avec sa tâche courante) pour créer
+la tâche 1002.
+
+A savoir :
+- param1 est la tâche implicite crée
+- param2 est l'ID de la section parallèle
+- param4 est le nombre de threads dans la section parallèle
+- param5 est l'index (l'ID du thread appelant)
+#+begin_src 
+timestamp	type	proc_id		current_thread_id	parent_task_id	current_task_id		param1	param2			param3		param4	param5
+0.000918	107	1		1			1001		0			1002	101			IMPLICIT	4	0			
+#+end_src
+*** 2019-05-21 mardi
+Le tracé avec les tâches parents/courants est terminé. J'ai donc revu
+le tracé de Time.c qui semble globalement cohérent
+- A voir pourquoi en tâche 1001, la tâche parent est indéfinie, et pas
+  la tâche 0. De manière général, comment se comporte la tâche 0 ?
+  Elle ne semble pas considéré comme une tâche.
+
+**** Remarques/Observations
+J'ai ensuite vu le tracé de Mergesort.c et nous pouvons voir des
+problèmes d'ordonnancement:
+- Des threads sont crées à ne rien faire (cf thread 4, 5 et 6). Ne
+  nombre de thread n'a PAS été imposé.
+- Seul le thread 1 et 3 travaillent réellement, alors qu'une bonne
+  partie du travail aurait pu être donné à d'autres threads.
+- Le thread 2 fait 2-3 tâches annexes mais n'est pas plus sollicité
+  que ça.
+
+J'ai dessiné le tracé sous forme d'arbre : on voit + clairement les
+tâches mises en attente. Je me demande si le diagramme de Grantt va
+permettre de voir le tracé aussi clairement... 
+**** Questions
+- Le thread 2 semble hériter de la pile de tâche du thread 1, il faut
+revoir ce point là asap.
+- Cet ordonnancement est étonnant, j'aimerai bien voir ce que ça donne
+  si j'impose 2 treads cette fois-ci.
+**** Conversion au format PAJE
+
+Avec ces nouvelles infos, le diagramme devrait être + simple à
+construire. Les infos globales qu'on a sont :
+
+#+begin_src 
+time <- event$timestamps
+thread_id <- event$current_thread_id
+proc_id <- event$proc_id
+task_creator_id <- event$current_task_id
+task_parent_id <- event$parent_task_id
+#+end_src
+
+***** Si event$type == 105 (new task)
+Si on crée la tâche initiale, il y a un switch implicite vers
+celle-ci.
+Sinon, on va juste signaler que la tâche a crée d'autres tâches
+(newEvent), mais que nous sommes toujours dans la tâche créatrice
+(donc pas de changement d'état) 
+#+begin_src 
+task_created_id <- event$param1
+
+if (event$param2 == INITIAL){
+// on a un new event ET un new state (car il y a un switch implicite) !
+
+newEvent(12, time, "TE", "Th", thread_id, "TC", task_created_id, proc_id)
+newState(10, time, "S", "Th", thread_id, "iniTa")
+}
+else{
+//On signale qu'une tâche a été crée mais on reste sur notre tache courante
+newEvent(12, time, "TE", "Th", thread_id, "TC", task_created_id, proc_id)
+}
+#+end_src
+
+***** Si event$type == 106 (end task)
+A REVOIR : Quand une tâche se termine, on ne sait PAS qui il va
+prendre ensuite. Ce n'est visiblement pas toujours la tâche parent !
+(cf =traces_ompt_Time.csv= ligne 28-29, il quitte 1012 mais ne retourne
+PAS vers 1002 mais il va vers 1011 ?)
+
+#+begin_src 
+task_deleted_id <- event$param1
+//Là encore, on aura un switch implicite vers la tâche parent
+newEvent(12, time, "TE", "Th", thread_id, "TD", task_deleted_id, proc_id)
+newState(11, time, "S", "Th", thread_id, "Ta", task_parent_id)
+#+end_src
+
+EDIT : Finalement si, il retourne bien vers 1002 avant de repasser
+à 1011. Tout va bien.
+***** Si event$type == 107 (new implicit task)
+Une tâche implicite se crée toujours à partir de la tâche 0.
+On a donc un switch implicite vers 0. PUIS on switch de nouveau
+(implicitement) vers la tâche nouvellement crée. D'une certaine façon,
+on peut dire qu'il y a eu un switch direct vers la tâche crée.
+(On a un switch indirect de 1001 à 1002, ligne 5, dans =traces_ompt_mergesort.csv=)
+
+#+begin_src 
+task_imp_created_id <- event$param1
+//Switch implicite entre tâche courante et tâche crée
+newEvent(12, time, "TE", "Th", thread_id, "impTC", task_imp_created_id, proc_id)
+newState(11, time, "S", "Th", thread_id, "Ta", task_imp_created_id)
+#+end_src
+***** Si event$type == 108 (end implicit task)
+
+Quand une tâche implicite se termine, on switch automatiquement vers
+la tâche parent. Donc :
+
+#+begin_src 
+task_imp_deleted_id <- event$param1
+//Là encore, on aura un switch implicite vers la tâche parent
+newEvent(12, time, "TE", "Th", thread_id, "impTD", task_imp_deleted_id, proc_id)
+newState(11, time, "S", "Th", thread_id, "Ta", task_parent_id)
+#+end_src
+***** Si event$type == 109 (schedule)
+Il s'agira simplement d'un changement d'état où on switch d'une tâche
+à une autre. Il faut vérifier si au final c'est bien un switch de la
+tâche parent à la tache courante. 
+
+#+begin_src 
+task_source <- event$param1 //ca aurait pu être task_parent_id
+task_destination <- event$param2 //ca aurait pu être task_current_id
+
+if (event$param3 == SWITCHED){
+//On devrait vérifier que task_source devient une tâche parent dans les prochaines lignes
+newEvent(12, time, "TE", "Th", thread_id, "Sw", task_destination, proc_id)
+newState(11, time, "S", "Th", thread_id, "Ta", task_destination)
+}
+
+#+end_src
+
+*** 2019-05-22 mercredi
+**** Retours Vincent
+***** Pour le rapport/TER
+- On explique qu'à partir des traces qu'on avait, il fallait voir si
+nous avions assez d'info pour avoir une trace complète de ce que le
+programme faisait, et comment les tâches s'ordonnancaient. On a vu
+qu'il nous manquait entre autre des infos (tâche courante/parent) 
+
+-Sur quel programme les tests ont été fait, est-ce que qu'il nous
+manquerait pas des infos sur des programmes + complexes
+
+- On est limité avec notre machine dont les caractéristiques sont les
+  suivants :
+
+#+begin_src 
+> lscpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                2
+On-line CPU(s) list:   0,1
+Thread(s) per core:    1
+Core(s) per socket:    2
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 23
+Model name:            Intel(R) Core(TM)2 Duo CPU     E8400  @ 3.00GHz
+Stepping:              10
+CPU MHz:               2011.741
+CPU max MHz:           3000,0000
+CPU min MHz:           1998,0000
+BogoMIPS:              5984.93
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              6144K
+NUMA node0 CPU(s):     0,1
+#+end_src
+
+On a donc deux processeurs ici, c'est peu. On a une autre machine à
+disposition : =cherokee=
+
+#+begin_src 
+lscpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                16
+On-line CPU(s) list:   0-15
+Thread(s) per core:    2
+Core(s) per socket:    4
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 44
+Model name:            Intel(R) Xeon(R) CPU           E5620  @ 2.40GHz
+Stepping:              2
+CPU MHz:               1596.011
+CPU max MHz:           2395,0000
+CPU min MHz:           1596,0000
+BogoMIPS:              4788.32
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              12288K
+NUMA node0 CPU(s):     0-3,8-11
+NUMA node1 CPU(s):     4-7,12-15
+#+end_src
+
+Avec cette fois 16 CPU (c'est mieux !). L'idée est donc de faire des
+tests sur cette machine.
+
+A NOTER : Les tâches mises en pause peuvent être préomptés si elles
+sont non liées (tied/untied), et donc ce n'est pas forcément le même
+thread qui gère une tâche de A à Z.
+
+***** Pour le magistère 
+Le format Grantt est assez rudimentaire. Il existe des formats de
+visualisation plus propres, plus détaillés et plus visibles :
+[[http://www-id.imag.fr/Laboratoire/Membres/Wagner_Frederic/rayon-logs.html][Rayon-logs]]
+
+Il faudra réadapter ce qu'on a pour ce format là.
+[[https://github.com/wagnerf42/rayon-logs][Git du Rayon-logs]]
+
+Il existe un binaire pour pour convertir le fichier .json en joli
+graphe (qu'il faudra juste réutiliser). Tout ce que je dois faire est
+de convertir mon .csv en .json (et non plus en .paje).
+
+*** 2019-05-23 jeudi
+**** Rédaction du rapport : Introduction
+Rédaction de l'introduction + Quelques recherches sur le format voulu
+du rapport + Rappel du Latex
+*** 2019-05-24 vendredi
+**** Rédaction du rapport : Parallélisme
+- Introduction OK
+
+ Récap des notions à aborder :
+- Efficacité
+- Speedup
+- Amdahl's law
+- Sys distribué
+- mém. partagé
+*** 2019-05-27 lundi
+**** Rédaction du rapport : Parallélisme
+Partie "Efficacité" OK
+*** 2019-05-28 mardi
+Rédaction du rapport
+*** 2019-05-29 mercredi
+Rédaction du rapport
+** 2019-06 juin
+*** 2019-06-03 lundi
+**** Rédaction du rapport
+Etat de l'Art + problématique terminé
+*** 2019-06-04 mardi [congé]
+*** 2019-06-05 mercredi
+**** Retour Rapport de Vincent
+cf Rapport
+*** du 2019-06-06 jeudi au 2019-06-13 jeudi 
+Rédaction du rapport
+*** 2019-06-14 vendredi
+**** Retour sur le rapport
+***** Ordonnancement decidé la compilation ?
+Non, du moins pas toujours. Certaines directives (hors tâches) comme
+les for se font à l'exec'
+***** Runtime
+Attention : runtime != temps d'exécution 
+Le runtime est le logiciel derrière qui permet l'exécution. Dire
+"durant le runtime" = "durant le logiciel" ?
+***** Partagé VS distribué ?
+En partagée : Attention, TOUTE la mémoire est partagée (excepté les
+registres du coup.) Cependant, rien interdit que certaines zones mem
+soient réservés à certains CPU, mais les autres CPU ont accès malgré
+tout à cette zone ! Si les CPU ont une mem privée, c'est du distribué.
+***** Temps d'accès mem en partagé
+Ce n'est pas toujours uniforme (cad que tous les CPU ne mettent pas
+forcément le MEME temps à chaque fois pour accéder à une zone mem.) =>
+NUMA.
+***** CPU ?
+Au final, le nombre total de CPU est : =nb_socket= x =nb_core_per_socket=
+x =nb_thead_per_core=
+***** Coté ordonnancement 
+Le schéma n'est pas tout à fait bon, il ne présente qu'UNE façon
+d'ordonnancer (et pas la meilleure...Pb de goulot d'étranglement :
+tous les threads voudront accéder au même taskpool, c'est pas fou) 
+Ce qui se fait souvent, c'est que chaque thread a sa pile
+d'attente. Et si il n'a plus de taf, il part en voler.
+***** Coté heure/date 
+Estimer le temps avec le nombre de cycle est acceptablemais pas
+ toujours :
+ Chaque CPU a son compteur de cycle. Ils démarrent tous à zéro mais au bout d'un temps ils peuvent
+se désynchroniser ! Et donc chaque CPU a sa propre notion de
+ temporalité. D'autant plus que chaque CPU n'a pas forcément la même
+ fréquence que ses voisins. 
+***** Compromis temps/énergie ?
+Pas tout à fait vrai : Si on a déjà les CPU dans la machine, ils sont
+actifs quoi qu'il arrive, et il vaut mieux les utiliser => parallélisme
+La première question était si il suffisait d'augmenter la fréquence
+des CPU. L'évolution suivait une courbe exponentielle => loi de Moore.
+Ce n'est plus valide à cause de la dissipation thermique => necessité
+de passer au parallélisme. (et pas uniquement pour être plus rapide...) 
+**** Retour sur les diapos
+***** Parallélisme : généralité
+Parler du séquentielle, puis des limites (loi de moore/limite physique) => necessité
+de passer au parallèle. Expliquer le parallèle.
+***** Expliquer ensuite OpenMP
+Et expliquer le par. mem. partagé + tâche AVEC openMP
+***** Sys tâches
+Se centrer sur ce qu'est une tache, et MOINS sur
+l'ordonnanceur. Présenter un graphe de tâche simplifié.
+***** OMPT
+Ok
+***** Graphe de dépendance
+On ne précise pas toutes les infos propre aux valeurs parce que ce
+nest pas utile. Surtout que se sont des données qui peuvent être
+lourdes à extraire et il ne faut pas que le traçage devienne trop invasif.
+Surtout utile quand il y a des vols de tâche. [REVOIR CA AVEC VINCENT]
